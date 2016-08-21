@@ -18,6 +18,8 @@ myApp.onPageInit('about', function (page) {
     });
 });
 
+
+
 // Generate dynamic page
 var dynamicPageIndex = 0;
 function createContentPage() {
