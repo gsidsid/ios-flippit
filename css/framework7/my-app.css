@@ -62,3 +62,7 @@ div .minitext {
 .card {
     z-index:-20;
 }
+
+.navbar-inner {
+    z-index:0;
+}
