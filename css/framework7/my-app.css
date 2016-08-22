@@ -2,7 +2,6 @@
     height: 200%;
     padding: 10px;
     font-size: 20px;
-    z-index:-20;
 }
 
 .login-screen-title {
@@ -15,8 +14,9 @@
 }
 
 .buttons-row .button {
-    margin-right: 30px;
-    left:auto;
+    margin-right: 10px;
+    left:-2.5%;
+    font-weight: 500;
 }
 
 .buttons-row .button:first-child {
@@ -37,8 +37,9 @@
     margin: 0 0;
 }
 
-html, body {margin: 0; height: 100%; overflow: hidden}
-
+.card {
+    box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+}
 .card-content-inner {
     font-size: 40px;
     font-weight: 600px;
@@ -59,6 +60,10 @@ div .minitext {
     color:gray;
 }
 
-.card {
-    z-index:-20;
+.navbar-fixed .tabbar-fixed .page-content, .navbar-fixed .toolbar-fixed .page-content, .navbar-fixed.tabbar-fixed .page-content, .navbar-fixed.toolbar-fixed .page-content, .tabbar-fixed .navbar-fixed .page-content, .toolbar-fixed .navbar-fixed .page-content {
+    padding-top: 0px;
+}
+
+.undernav {
+    padding-top:57px;
 }
