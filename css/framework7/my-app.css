@@ -1,5 +1,6 @@
 .list-block .item-link.list-button {
-    text-align: center;
+    height: 200%;
+    padding: 10px;
     font-size: 20px;
 }
 
@@ -19,4 +20,8 @@
 
 .buttons-row .button:first-child {
     margin-left: 30px;
+}
+
+.navbar-fixed .messagebar~.page-content, .navbar-fixed .toolbar-bottom~.page-content {
+    padding-top: 24px;
 }
