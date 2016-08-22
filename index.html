@@ -83,7 +83,7 @@
             <div class="toolbar-inner">
                 <a href="#" onclick="onch()" class="link">Home</a>
                 <script>
-                    //switch active div to searchtab div
+                    //switch active div to hometab div
                     function onch() {
                         var home = document.getElementById('active');
                         var hometab = document.getElementById('hometab');
@@ -101,7 +101,7 @@
                 </script>
                 <a href="#" onclick="onca()" class="link big">+</a>
                 <script>
-                    //switch active div to searchtab div
+                    //switch active div to addtab div
                     function onca() {
                         var home = document.getElementById('active');
                         var add = document.getElementById('addtab');
@@ -110,7 +110,7 @@
                 </script>
                 <a href="#" onclick="oncst()" class="link">Stats</a>
                 <script>
-                    //switch active div to searchtab div
+                    //switch active div to stats div
                     function oncst() {
                         var home = document.getElementById('active');
                         var stats = document.getElementById('statstab');
@@ -119,7 +119,7 @@
                 </script>
                 <a href="#" onclick="oncset()" class="link">Settings</a>
                 <script>
-                    //switch active div to searchtab div
+                    //switch active div to settingstab div
                     function oncset() {
                         var home = document.getElementById('active');
                         var set = document.getElementById('settingstab');
@@ -303,17 +303,15 @@
                   <ul>
                     <li class="item-content">
                       <div class="item-inner">
-                        <div class="item-title label">Username</div>
                         <div class="item-input">
-                          <input type="text" name="username" placeholder="Your username">
+                          <input type="text" name="username" placeholder="Username">
                         </div>
                       </div>
                     </li>
                     <li class="item-content">
                       <div class="item-inner">
-                        <div class="item-title label">Password</div>
                         <div class="item-input">
-                          <input type="password" name="password" placeholder="Your password">
+                          <input type="password" name="password" placeholder="Password">
                         </div>
                       </div>
                     </li>
@@ -321,10 +319,18 @@
                 </div>
 
                   <br> &nbsp;
-                <p class="buttons-row">
-                  <a href="#" class="button button-big button-fill color-orange item-link list-button close-login-screen">Sign In</a>
-                  <a href="#" class="button button-big button-fill color-gray item-link list-button close-login-screen">Register</a>
-                </p>  &nbsp;
+
+                <div class="buttons-block">
+                    <ul>
+                        <li>
+                            <a href="#" class="button button-big button-fill color-deeporange item-link list-button close-login-screen">Sign In</a>
+                        </li>
+                        <li>
+                        <a href="#" class="button button-big button-fill color-gray item-link list-button close-login-screen">Register</a>
+                        </li>
+                    </ul>
+                </div>
+                  &nbsp;
               </form>
             </div>
           </div>
