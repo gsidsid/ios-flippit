@@ -6,11 +6,20 @@
 
 .login-screen-title {
     margin-top:-10%;
-    background: orange;
+    background: #FF3C00;
     color:white;
     height:48%;
     font-weight: 500;
     font-size: 80px;
+}
+
+.login-screen-buttons ul li {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.login-screen-buttons p {
+    text-align: center;
 }
 
 .buttons-row .button {
@@ -64,6 +73,15 @@ div .minitext {
     padding-top: 0px;
 }
 
+div {
+	font-family: 'Avenir' Roboto;
+}
+
 .undernav {
     padding-top:57px;
 }
+
+.button.button-fill.bg-orange, .button.button-fill.color-orange {
+    right: 6%;
+}
+
