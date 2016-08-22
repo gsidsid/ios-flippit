@@ -2,6 +2,7 @@
     height: 200%;
     padding: 10px;
     font-size: 20px;
+    z-index:-20;
 }
 
 .login-screen-title {
@@ -45,4 +46,19 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
 .card-footer {
 
+}
+
+.list-block .item-link.list-button .addcard {
+    height: 200%;
+    padding: -10px;
+    font-size:28px;
+}
+
+div .minitext {
+    font-size:10px;
+    color:gray;
+}
+
+.card {
+    z-index:-20;
 }
