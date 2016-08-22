@@ -81,3 +81,7 @@ div {
     padding-top:57px;
 }
 
+.button.button-fill.bg-orange, .button.button-fill.color-orange {
+    right: 6%;
+}
+
