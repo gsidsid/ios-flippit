@@ -23,11 +23,26 @@
 }
 
 .navbar-fixed .messagebar~.page-content, .navbar-fixed .toolbar-bottom~.page-content {
-    padding-top: 24px;
+    padding-top: 0px;
 }
 
 .big {
     font-size: 35px;
     height: 50px;
     margin-bottom: 5px;
+}
+
+.list-block {
+    margin: 0 0;
+}
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+.card-content-inner {
+    font-size: 40px;
+    font-weight: 600px;
+}
+
+.card-footer {
+
 }

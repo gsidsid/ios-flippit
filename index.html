@@ -52,6 +52,7 @@
 </head>
 
 <body class="theme-orange">
+    <div class="statusbar-overlay" style="background:black;-webkit-transition:400ms;transition:400ms;"></div>
     <!-- APP CONTENT BELOW THIS LINE: Preview in device resolution ; FLAT_OS CONFIGURATION-->
 
     <div class="page-content">
@@ -65,25 +66,79 @@
 
 
           <div data-page="home" class="page toolbar-fixed navbar-fixed">
-          <div class="navbar">
-            <div class="navbar-inner">
-              <div class="center">Notecard Sets</div>
-            </div>
-          </div>
+
 
           <!-- Toolbar has additional "toolbar-bottom" class -->
           <div class="toolbar toolbar-bottom">
+              <script>
+                  //nifty function that allows div swapping for shorter loading times with js
+                  function nodeToString ( node ) {
+                       var tmpNode = document.createElement( "div" );
+                       tmpNode.appendChild( node.cloneNode( true ) );
+                       var str = tmpNode.innerHTML;
+                       tmpNode = node = null; // prevent memory leaks in IE
+                       return str;
+                  }
+              </script>
             <div class="toolbar-inner">
-                <a href="#" class="link">Home</a>
-                <a href="search.html" class="link">Search</a>
-                <a href="#" class="link big">+</a>
-                <a href="#" class="link">Stats</a>
-                <a href="#" class="link">Settings</a>
+                <a href="#" onclick="onch()" class="link">Home</a>
+                <script>
+                    //switch active div to searchtab div
+                    function onch() {
+                        var home = document.getElementById('active');
+                        var hometab = document.getElementById('hometab');
+                        home.innerHTML = nodeToString(hometab);
+                    }
+                </script>
+                <a href="#" onclick="oncs()" class="link" >Search</a>
+                <script>
+                    //switch active div to searchtab div
+                    function oncs() {
+                        var home = document.getElementById('active');
+                        var search = document.getElementById('searchtab');
+                        home.innerHTML = nodeToString(search);
+                    }
+                </script>
+                <a href="#" onclick="onca()" class="link big">+</a>
+                <script>
+                    //switch active div to searchtab div
+                    function onca() {
+                        var home = document.getElementById('active');
+                        var add = document.getElementById('addtab');
+                        home.innerHTML = nodeToString(add);
+                    }
+                </script>
+                <a href="#" onclick="oncst()" class="link">Stats</a>
+                <script>
+                    //switch active div to searchtab div
+                    function oncst() {
+                        var home = document.getElementById('active');
+                        var stats = document.getElementById('statstab');
+                        home.innerHTML = nodeToString(stats);
+                    }
+                </script>
+                <a href="#" onclick="oncset()" class="link">Settings</a>
+                <script>
+                    //switch active div to searchtab div
+                    function oncset() {
+                        var home = document.getElementById('active');
+                        var set = document.getElementById('settingstab');
+                        home.innerHTML = nodeToString(set);
+                    }
+                </script>
           </div>
           </div>
 
             <!-- Scrollable page content -->
             <div class="page-content">
+                <div id="active">
+                <!-- deftab is default tab -->
+                <div id="deftab">
+                 <div class="navbar">
+                    <div class="navbar-inner">
+                      <div class="center">Notecard Sets</div>
+                    </div>
+                  </div>
                 <div class="list-block">
                   <ul>
                     <li>
@@ -98,11 +153,159 @@
                   </ul>
               </div>
             </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     </div>
+</div>
+
+<!-- ALL TAB VIEWS FOLLOW -->
+
+    <div id="hometab">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center">Notecard Sets</div>
+            </div>
+        </div>
+            <div class="list-block">
+                  <ul>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard set 1</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard set 2</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard set 3</a>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+
+    <div id="searchtab">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center">Get Sets</div>
+            </div>
+        </div>
+        <form class="searchbar">
+            <div class="searchbar-input">
+                <input type="search" placeholder="Search">
+                <a href="#" class="searchbar-clear"></a>
+            </div>
+            <a href="#" class="searchbar-cancel">Cancel</a>
+        </form>
+        <div class="searchbar-overlay"></div>
+
+        <div class="list-block">
+                  <ul>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard search 1</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard search 2</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard search 3</a>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+
+        <div id="addtab">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center">Add cards</div>
+            </div>
+        </div>
+        <div class="list-block">
+                  <ul>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard add 1</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard add 2</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard add 3</a>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+
+        <div id="statstab">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center">Statistics</div>
+            </div>
+        </div>
+        <div class="list-block">
+                  <ul>
+                    <li>
+                        <div class="card">
+                          <div class="card-header">Set 1</div>
+                          <div class="card-content">
+                            <div class="card-content-inner">4h 52m</div>
+                          </div>
+                          <div class="card-footer">90%</div>
+                        </div>
+                    </li>
+                    <li>
+                      <div class="card">
+                          <div class="card-header">Set 2</div>
+                          <div class="card-content">
+                            <div class="card-content-inner">2h 3m</div>
+                          </div>
+                          <div class="card-footer">23%</div>
+                        </div>
+                    </li>
+                    <li>
+                      <div class="card">
+                          <div class="card-header">Set 3</div>
+                          <div class="card-content">
+                            <div class="card-content-inner">0h 20m</div>
+                          </div>
+                          <div class="card-footer">99%</div>
+                        </div>
+                    </li>
+                    <li>
+                    <div class="card">
+                          <div class="card-header">Set 4</div>
+                          <div class="card-content">
+                            <div class="card-content-inner">2h 00m</div>
+                          </div>
+                          <div class="card-footer">COMPLETE</div>
+                        </div>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+
+        <div id="settingstab">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center">Settings</div>
+            </div>
+        </div>
+        <div class="list-block">
+                  <ul>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard settings 1</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard settings 2</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Notecard settings 3</a>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+
+<!-- Login view on app init -->
 
      <div class="login-screen modal-in">
         <div class="view">
@@ -133,28 +336,18 @@
 
                   <br> &nbsp;
                 <p class="buttons-row">
-                  <a href="#" class="button button-big button-fill button-raised color-orange item-link list-button close-login-screen">Sign In</a>
-                  <a href="#" class="button button-big button-fill button-raised color-gray item-link list-button close-login-screen">Register</a>
+                  <a href="#" class="button button-big button-fill color-orange item-link list-button close-login-screen">Sign In</a>
+                  <a href="#" class="button button-big button-fill color-gray item-link list-button close-login-screen">Register</a>
                 </p>  &nbsp;
-                  <!--
-                <div class="list-block">
-                    <br>
-                  <ul>
-                    <li><a href="#" class="item-link list-button close-login-screen">Sign In</a></li>
-                  </ul>
-                  <div class="list-block-label">
-                    <p></p>
-                    <p><a href="#" class="close-login-screen">Sign Up</a></p>
-                  </div>
-                </div>
-                  -->
               </form>
             </div>
           </div>
         </div>
       </div>
 
-    <script type="text/javascript" src="cordova.js"></script>
+
+
+    <!-- <script type="text/javascript" src="cordova.js"></script> -->
     <script type="text/javascript" src="js/index.js"></script>
     <!-- Imports for framework7 UI/nav scripts-->
     <script type="text/javascript" src="js/framework7/framework7.min.js"></script>
@@ -163,6 +356,7 @@
     <script type="text/javascript">
         app.initialize();
     </script>
+
 </body>
 
 </html>
