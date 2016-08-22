@@ -1,8 +1,31 @@
 // Initialize your app
-var myApp = new Framework7();
+var myApp = new Framework7({
+    tapHold:true
+});
 
 // Export selectors engine
 var $$ = Dom7;
+
+$$('.nset').on('taphold', function () {
+  var buttons = [
+        {
+            text: 'Edit Options',
+            label: true
+        },
+        {
+            text: 'Add cards',
+            bold: true
+        },
+        {
+            text: 'Edit cards',
+        },
+        {
+            text: 'Cancel',
+            color: 'red'
+        },
+    ];
+    myApp.actions(buttons);
+});
 
 // Add view
 var mainView = myApp.addView('.view-main', {

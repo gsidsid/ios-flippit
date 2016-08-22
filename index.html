@@ -44,13 +44,14 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <!-- Framework7 Library CSS Proper, color related styles, iOS Theme -->
-    <link rel="stylesheet" href="css/framework7/framework7.ios.min.css">
-    <link rel="stylesheet" href="css/framework7/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="css/framework7/framework7.material.min.css">
+    <link rel="stylesheet" href="css/framework7/framework7.material.colors.css">
+    <link rel="stylesheet" href="css/framework7/my-app.css"/>
 
     <title>Flippit</title>
 </head>
 
-<body>
+<body class="theme-orange">
     <!-- APP CONTENT BELOW THIS LINE: Preview in device resolution ; FLAT_OS CONFIGURATION-->
 
     <div class="page-content">
@@ -62,37 +63,37 @@
           <!-- Page, "data-page" contains page name -->
           <div data-page="index" class="page">
 
-            <!-- Top Navbar. In Material theme it should be inside of the page-->
-            <div class="navbar">
-              <div class="navbar-inner">
-                <div class="center">Notecard Sets</div>
-              </div>
-            </div>
 
-            <!-- Bottom Toolbar. In Material theme it should be inside of the page-->
-            <div class="toolbar">
-              <div class="toolbar-inner">
-                <!-- Toolbar links -->
-                <a href="#" class="link">Link 1</a>
-                <a href="#" class="link">Link 2</a>
-                <a href="#" class="link">Link 3</a>
-                <a href="#" class="link">Link 4</a>
-                <a href="#" class="link">Link 5</a>
-              </div>
+          <div data-page="home" class="page toolbar-fixed navbar-fixed">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="center">Notecard Sets</div>
             </div>
+          </div>
+
+          <!-- Toolbar has additional "toolbar-bottom" class -->
+          <div class="toolbar toolbar-bottom">
+            <div class="toolbar-inner">
+                <a href="#" class="link">1</a>
+                <a href="#" class="link">2</a>
+                <a href="#" class="link">3</a>
+                <a href="#" class="link">4</a>
+                <a href="#" class="link">5</a>
+          </div>
+          </div>
 
             <!-- Scrollable page content -->
             <div class="page-content">
                 <div class="list-block">
                   <ul>
                     <li>
-                      <a href="#" class="item-link list-button">Notecard set 1</a>
+                      <a href="#" class="item-link list-button nset">Notecard set 1</a>
                     </li>
                     <li>
-                      <a href="#" class="item-link list-button">Notecard set 2</a>
+                      <a href="#" class="item-link list-button nset">Notecard set 2</a>
                     </li>
                     <li>
-                      <a href="#" class="item-link list-button">Notecard set 3</a>
+                      <a href="#" class="item-link list-button nset">Notecard set 3</a>
                     </li>
                   </ul>
               </div>
@@ -129,15 +130,24 @@
                     </li>
                   </ul>
                 </div>
+
+                  <br> &nbsp;
+                <p class="buttons-row">
+                  <a href="#" class="button button-big button-fill button-raised color-orange item-link list-button close-login-screen">Sign In</a>
+                  <a href="#" class="button button-big button-fill button-raised color-gray item-link list-button close-login-screen">Register</a>
+                </p>  &nbsp;
+                  <!--
                 <div class="list-block">
+                    <br>
                   <ul>
                     <li><a href="#" class="item-link list-button close-login-screen">Sign In</a></li>
                   </ul>
                   <div class="list-block-label">
-                    <p>Notecard app.</p>
-                    <p><a href="#" class="close-login-screen">Exit</a></p>
+                    <p></p>
+                    <p><a href="#" class="close-login-screen">Sign Up</a></p>
                   </div>
                 </div>
+                  -->
               </form>
             </div>
           </div>
