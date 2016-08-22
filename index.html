@@ -130,7 +130,7 @@
           </div>
 
             <!-- Scrollable page content -->
-            <div class="page-content">
+            <div class="page-content" id="container">
                 <div id="active">
                 <!-- deftab is default tab -->
                 <div id="deftab">
@@ -164,13 +164,15 @@
 
 <!-- ALL TAB VIEWS FOLLOW -->
 <!-- HOME TAB FOLLOWS                                      -->
-    <div id="hometab">
+    <div id="hometab" data-page="hometab" class="page navbar-fixed">
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center">Notecard Sets</div>
             </div>
         </div>
-            <div class="list-block">
+        <div class="page-content">
+
+            <div class="list-block undernav">
                   <ul>
                     <li>
                       <a href="#" class="item-link list-button nset">Notecard set 1</a>
@@ -184,13 +186,15 @@
                   </ul>
             </div>
         </div>
+        </div>
 <!-- SEARCH TAB FOLLOWS                                      -->
-    <div id="searchtab">
+    <div id="searchtab" data-page="searchtab" class="page navbar-fixed">
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center">Get Sets</div>
             </div>
         </div>
+        <div class="page-content" style="padding-top:13%;">
         <form class="searchbar">
             <div class="searchbar-input">
                 <input type="search" placeholder="Search">
@@ -214,14 +218,16 @@
                   </ul>
             </div>
         </div>
+        </div>
 <!-- ADD TAB FOLLOWS                                      -->
-        <div id="addtab">
+        <div id="addtab" data-page="addtab" class="page navbar-fixed">
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center">Add cards</div>
             </div>
         </div>
-        <div class="list-block">
+            <div class="page-content">
+        <div class="list-block undernav">
                   <ul>
                     <li>
                       <a href="#" class="item-link list-button addcard" style="font-size:30px; padding-top:15px;">Automatic Entry<br><div class="miniText" style="font-size:12px;">Take a picture of a list to automagically generate flashcards!</div></a>
@@ -231,18 +237,21 @@
                     </li>
                   </ul>
             </div>
+            </div>
         </div>
 <!-- STATS TAB FOLLOWS                  IM TRYING TO MAKE THIS CONFIG TO HAVE A LOCKED NAVBAR                    -->
-        <div id="statstab">
-        <div style="padding: 0px 0 0 0px; height:100%; width:100%;position:absolute;left:0;top:0;margin-bottom:10px;">
+        <div id="statstab" data-page="statstab" class="page navbar-fixed">
         <div class="navbar">
-            <div class="navbar-inner" style="z-index:1">
+            <div class="navbar-inner">
                 <div class="center">Statistics</div>
             </div>
         </div>
-        </div>
-        <div class="list-block" style="margin-top:70px;">
+        <div class="page-content" style="padding-top:10px;">
+        <div class="list-block">
                   <ul>
+                    <br>
+                    <br>
+
                     <li>
                         <div class="card">
                           <div class="card-header">Set 1</div>
@@ -279,15 +288,22 @@
                           <div class="card-footer">COMPLETE</div>
                         </div>
                     </li>
+                      <br>
+                      <br>
+                      <br>
                   </ul>
+            </div>
             </div>
         </div>
 <!-- SETTINGS TAB FOLLOWS                                      -->
-        <div id="settingstab">
+        <div id="settingstab" data-page="settingstab" class="page navbar-fixed">
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center">Settings</div>
             </div>
+        </div>
+        <div class="page-content">
+        </div>
         </div>
 
 
@@ -297,7 +313,7 @@
         <div class="view">
           <div class="page">
             <div class="page-content login-screen-content">
-              <div class="login-screen-title">Flippit</div>
+              <div class="login-screen-title" style="padding-top:20px; font-family:Roboto"><b>Flippit</b></div>
               <form>
                 <div class="list-block">
                   <ul>
@@ -322,8 +338,8 @@
 
                   <br> &nbsp;
                 <p class="buttons-row">
-                  <a href="#" class="button button-big button-fill color-orange item-link list-button close-login-screen">Sign In</a>
-                  <a href="#" class="button button-big button-fill color-gray item-link list-button close-login-screen">Register</a>
+                  <a href="#" class="button button-big button-raised color-orange item-link list-button close-login-screen">Sign In</a>
+                  <a href="#" class="button button-big button-raised color-gray item-link list-button close-login-screen">Register</a>
                 </p>  &nbsp;
               </form>
             </div>
