@@ -1,7 +1,8 @@
 // Initialize your app
 var myApp = new Framework7({
     tapHold:true,
-    animateNavBackIcon: true
+    animateNavBackIcon: true,
+    swipeBackPage:true
 });
 
 // Export selectors engine
