@@ -152,3 +152,37 @@ p {
 .login-screen {
     overflow: hidden;
 }
+
+.navbar a.link i+span {
+    margin-left: -20px;
+}
+
+.navbar .center2, .subnavbar .center2 {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 16px;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 56px;
+    display: inline-block;
+    text-align: left;
+    left:35px;
+}
+
+.navbar .center3, .subnavbar .center3 {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 16px;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 56px;
+    display: inline-block;
+    text-align: left;
+    left:27px;
+}

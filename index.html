@@ -48,6 +48,12 @@
     <link rel="stylesheet" href="css/framework7/framework7.material.colors.css">
     <link rel="stylesheet" href="css/framework7/my-app.css"/>
 
+    <!-- <script type="text/javascript" src="cordova.js"></script> -->
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jQuery/jquery-3.1.0.slim.min.js"></script>
+    <!-- Imports for framework7 UI/nav scripts-->
+    <script type="text/javascript" src="js/framework7/framework7.min.js"></script>
+    <script type="text/javascript" src="js/framework7/my-app.js"></script>
     <title>Flippit</title>
 </head>
 
@@ -133,13 +139,15 @@
             <div class="page-content" id="container">
                 <div id="active">
                 <!-- deftab is default tab -->
-                <div id="deftab">
-                 <div class="navbar">
-                    <div class="navbar-inner">
-                      <div class="center">Notecard Sets</div>
-                    </div>
-                  </div>
-                <div class="list-block">
+                    <div id="hometab" data-page="hometab" class="page navbar-fixed">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center">Notecard Sets</div>
+            </div>
+        </div>
+        <div class="page-content">
+
+            <div class="list-block undernav">
                   <ul>
                     <li>
                       <a href="#" class="item-link list-button nset">Notecard set 1</a>
@@ -151,8 +159,9 @@
                       <a href="#" class="item-link list-button nset">Notecard set 3</a>
                     </li>
                   </ul>
-              </div>
             </div>
+        </div>
+        </div>
             </div>
             </div>
           </div>
@@ -230,16 +239,66 @@
         <div class="list-block undernav">
                   <ul>
                     <li>
-                      <a href="#" class="item-link list-button addcard" style="font-size:30px; padding-top:15px;">Automatic Entry<br><div class="miniText" style="font-size:12px;">Take a picture of a list to automagically generate flashcards!</div></a>
+                      <a onclick="oncma()" class="item-link list-button addcard" style="font-size:30px; padding-top:15px;">Automatic Entry<br><div class="miniText" style="font-size:12px;">Take a picture of a list to automagically generate flashcards!</div></a>
+                        <script>
+                        //switch active div to hometab div
+                            function oncma() {
+                                var home = document.getElementById('active');
+                                var auttab = document.getElementById('addauttab');
+                                home.innerHTML = nodeToString(auttab);
+                            }
+                        </script>
                     </li>
                     <li>
-                       <a href="#" class="item-link list-button addcard" style="font-size:30px; padding-top:15px;">Manual Entry<br><div class="miniText" style="font-size:12px;">Type up your flashcards. Proven to be as accurate as you are.</div></a>
+                       <a onclick="oncam()" class="item-link list-button addcard" style="font-size:30px; padding-top:15px;">Manual Entry<br><div class="miniText" style="font-size:12px;">Type up your flashcards. Proven to be as accurate as you are.</div></a>
+                        <script>
+                        //switch active div to hometab div
+                            function oncam() {
+                                var home = document.getElementById('active');
+                                var mantab = document.getElementById('addmantab');
+                                home.innerHTML = nodeToString(mantab);
+                            }
+                        </script>
                     </li>
                   </ul>
             </div>
             </div>
         </div>
-<!-- STATS TAB FOLLOWS                  IM TRYING TO MAKE THIS CONFIG TO HAVE A LOCKED NAVBAR                    -->
+
+        <div id="addmantab" data-page="addmantab" class="page navbar-fixed">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a onclick="onca()" class="link">
+                            <i class="icon icon-back"></i>
+                            <span>Back &nbsp; &nbsp;</span>
+                        </a>
+                    </div>
+                    <div class="center2">Manual Entry</div>
+                </div>
+            </div>
+            <div class="page-content">
+
+            </div>
+        </div>
+
+        <div id="addauttab" data-page="addauttab" class="page navbar-fixed">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a onclick="onca()" class="link">
+                            <i class="icon icon-back"></i>
+                            <span>Back &nbsp; &nbsp;</span>
+                        </a>
+                    </div>
+                    <div class="center3">Automatic Entry</div>
+                </div>
+            </div>
+            <div class="page-content">
+            </div>
+        </div>
+
+<!-- STATS TAB FOLLOWS                                                  -->
         <div id="statstab" data-page="statstab" class="page navbar-fixed">
         <div class="navbar">
             <div class="navbar-inner">
@@ -353,15 +412,11 @@
         </div>
       </div>
 
-    <!-- <script type="text/javascript" src="cordova.js"></script> -->
-    <script type="text/javascript" src="js/index.js"></script>
-    <!-- Imports for framework7 UI/nav scripts-->
-    <script type="text/javascript" src="js/framework7/framework7.min.js"></script>
-    <script type="text/javascript" src="js/framework7/my-app.js"></script>
 
     <script type="text/javascript">
         app.initialize();
     </script>
+
 
 </body>
 
