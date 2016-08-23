@@ -93,8 +93,27 @@ div {
 }
 
 
+@media screen and (max-height: 320px){
+    /* IPHONE 5 WIDESCREEN */
+.login-screen-title {
+    background: #FFFFFF;
+    color:#FF3C00;
+    font-weight: 100;
+    font-size: 55px;
+    margin-bottom: -26px;
+}
+.button.button-fill.bg-orange, .button.button-fill.color-orange {
+    text-align: center;
+    width: 78vw;
+    height: 2%;
+    margin-top: -8vw;
+    right: 3%;
+    position: relative;
+}
+}
+
 @media screen and (min-width: 500px){
-    /* IF HORIZONTAL */
+    /* IF HORIZONTAL IPHONE 6 */
 p {
     margin-right: 6%;
 }
@@ -106,7 +125,7 @@ ul {
 
 }
 @media screen and (max-width: 500px){
-  /* IF VERTICAL */
+  /* IF VERTICAL IPHONE 6*/
 p {
     margin-right: 12%;
 }
@@ -117,6 +136,16 @@ p {
     color:#FF3C00;
     font-weight: 100;
     font-size: 80px;
+}
+}
+
+@media screen and (min-width: 736px){
+.button.button-fill.bg-orange, .button.button-fill.color-orange {
+    text-align: center;
+    width: 78vw;
+    height: 5%;
+    margin-top: -2vw;
+    position: relative;
 }
 }
 
