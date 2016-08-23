@@ -176,3 +176,7 @@ table, td {
 .button.button-fill.bg-gray, .button.button-fill.color-gray {
     background:#FF3C00 !important;
 }
+
+input {
+    border: none;
+}

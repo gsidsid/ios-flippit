@@ -266,7 +266,7 @@
         </div>
 
         <div id="addmantab" data-page="addmantab" class="page navbar-fixed">
-
+            <!-- need device resolution specific css for navbar label here -->
             <div class="navbar">
                 <div class="navbar-inner">
                     <div class="left">
@@ -278,50 +278,66 @@
                 </div>
             </div>
             <div class="page-content">
-                <div class="view view-main">
+                <div class="views">
+                <div class="view viewA">
+                <div class="pages">
                 <div class="undernav">
-                <table id="mantab" class="ttab">
-                    <tr style="background-color:#FF3C00; color:white;">
-                        <th>Front</th>
-                        <th>Back</th>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                </table>
+                <table id="mantab" style="cursor:pointer;">
                 <script>
-                    /*
                 function ay() {
                     var table = document.getElementById("mantab");
                     if (table != null) {
                         for (var i = 0; i < table.rows.length; i++) {
                             for (var j = 0; j < table.rows[i].cells.length; j++)
                             table.rows[i].cells[j].onclick = function () {
-                                this.innerHTML = "tapped";
+                                atVal(this);
                             };
                         }
                     }
                 }
-                */
+
+                    function atVal(cel) {
+                        cel.innerHTML = "tapped";
+                    }
+
+                    function cert() {
+                        var x = document.getElementsByClassName("active-state");
+                        x.innerHTML = "tapped";
+                    }
+
+                //}
                 </script>
+                    <tr style="background-color:#FF3C00; color:white;">
+                        <th>Front</th>
+                        <th>Back</th>
+                    </tr>
+                    <tr>
+                        <td><input type='text'/></td>
+                        <td><input type='text'/></td>
+                    </tr>
+                </table>
             </div>
                 <br>
             <p class="buttons-column">
-                <a onclick="addrow()" style="margin-left:45px; margin-bottom:7px; padding:10px; height:117%" class="button button-raised color-orange">Add Card +</a>
+                <!--  padding:10px; height:117% -->
+                <a onclick="addrow()" style="margin-left:45px; margin-bottom:7px;" class="button button-raised color-orange">Add Card +</a>
                 <script>
                 function addrow() {
                     var table = document.getElementById("mantab");
                     var row = table.insertRow();
                     var cell1 = row.insertCell(0);
                     var cell2 = row.insertCell(1);
-                        cell1.innerHTML = "&nbsp;"
-                        cell2.innerHTML = "&nbsp;"
+                    cell1.setAttribute('class', 'inp');
+                    cell2.setAttribute('class', 'inp');
+                        cell1.innerHTML = "<input type='text'/>"
+                        cell2.innerHTML = "<input type='text'/>"
                 }
                 </script>
                 <a href="#" style="margin-left:45px" class="button button-raised button-fill color-gray">Finish Deck</a>
                 <br><br><br>
             </p>
+            </div>
+            </div>
             </div>
             </div>
         </div>
@@ -458,7 +474,6 @@
 
     <script type="text/javascript">
         app.initialize();
-
 
     </script>
 

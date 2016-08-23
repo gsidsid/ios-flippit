@@ -1,7 +1,7 @@
 // Initialize your app
 var myApp = new Framework7({
     tapHold:true,
-    animateNavBackIcon: true;
+    animateNavBackIcon: true
 });
 
 // Export selectors engine
@@ -28,46 +28,14 @@ $$('.nset').on('taphold', function () {
     myApp.actions(buttons);
 });
 
-$$('.ttab').on('click', function () {
-    var table = document.getElementById("mantab");
-            if (table != null) {
-                for (var i = 0; i < table.rows.length; i++) {
-                    for (var j = 0; j < table.rows[i].cells.length; j++)
-                     table.rows[i].cells[j].onclick = function () {
-                         var clickedLink = this;
-                         var popoverHTML;
-                         if(i == 0) {
-                              popoverHTML = '<div class="popover">'+
-                                                  '<div class="popover-inner">'+
-                                                    '<div class="content-block">'+
-                                                      '<p>Enter content on the front of the card.</p>'+
-                                                      '<p>' + this.innerHTML + '</p>'+
-                                                    '</div>'+
-                                                  '</div>'+
-                                                '</div>'
-                         } else if(i == 1) {
-                             popoverHTML = '<div class="popover">'+
-                                                  '<div class="popover-inner">'+
-                                                    '<div class="content-block">'+
-                                                      '<p>Enter content on the back of the card.</p>'+
-                                                      '<p>' + this.innerHTML + '</p>'+
-                                                    '</div>'+
-                                                  '</div>'+
-                                                '</div>'
-                         }
-                              myApp.popover(popoverHTML, clickedLink);
-                      };
-                 }
-             }
 
-});
 
 // Add view
 var mainView = myApp.addView('.view-main', {
-    // Because we use fixed-through navbar we can enable dynamic navbar
-    dynamicNavbar: true
 });
 
+
+/*
 // Callbacks to run specific code for specific pages, for example for About page:
 myApp.onPageInit('about', function (page) {
     // run createContentPage func after link was clicked
@@ -106,3 +74,4 @@ function createContentPage() {
     );
 	return;
 }
+*/
