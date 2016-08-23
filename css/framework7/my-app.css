@@ -88,3 +88,7 @@ div {
 .statusbar-overlay {
     background: #FF3C00;
 }
+
+p {
+    margin-right: 9%;
+}
