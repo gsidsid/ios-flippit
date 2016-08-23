@@ -266,6 +266,7 @@
         </div>
 
         <div id="addmantab" data-page="addmantab" class="page navbar-fixed">
+
             <div class="navbar">
                 <div class="navbar-inner">
                     <div class="left">
@@ -277,17 +278,50 @@
                 </div>
             </div>
             <div class="page-content">
+                <div class="view view-main">
                 <div class="undernav">
-                <table>
-                    <tr style="background-color:#FF3C00;">
+                <table id="mantab" class="ttab">
+                    <tr style="background-color:#FF3C00; color:white;">
                         <th>Front</th>
                         <th>Back</th>
                     </tr>
                     <tr>
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
                     </tr>
                 </table>
+                <script>
+                    /*
+                function ay() {
+                    var table = document.getElementById("mantab");
+                    if (table != null) {
+                        for (var i = 0; i < table.rows.length; i++) {
+                            for (var j = 0; j < table.rows[i].cells.length; j++)
+                            table.rows[i].cells[j].onclick = function () {
+                                this.innerHTML = "tapped";
+                            };
+                        }
+                    }
+                }
+                */
+                </script>
+            </div>
+                <br>
+            <p class="buttons-column">
+                <a onclick="addrow()" style="margin-left:45px; margin-bottom:7px; padding:10px; height:117%" class="button button-raised color-orange">Add Card +</a>
+                <script>
+                function addrow() {
+                    var table = document.getElementById("mantab");
+                    var row = table.insertRow();
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                        cell1.innerHTML = "&nbsp;"
+                        cell2.innerHTML = "&nbsp;"
+                }
+                </script>
+                <a href="#" style="margin-left:45px" class="button button-raised button-fill color-gray">Finish Deck</a>
+                <br><br><br>
+            </p>
             </div>
             </div>
         </div>
@@ -424,6 +458,8 @@
 
     <script type="text/javascript">
         app.initialize();
+
+
     </script>
 
 

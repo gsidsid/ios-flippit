@@ -160,7 +160,7 @@ i.icon.icon-back {
 table {
     border-collapse: collapse;
     border-spacing: 10px;
-    color:white;
+    color:black;
     font-family: 'Avenir' Roboto;
     font-size: 16px;
     margin: 10px;
@@ -168,7 +168,11 @@ table {
     height: 100%;
 }
 
-table, th {
-    border: 1px solid black;
+table, td {
+    padding: 5 5 5 5px;
+    border: 1px solid gray;
 }
 
+.button.button-fill.bg-gray, .button.button-fill.color-gray {
+    background:#FF3C00 !important;
+}
