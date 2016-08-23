@@ -118,11 +118,13 @@ p {
     margin-right: 6%;
 }
 ul {
- text-align: center;
+    text-align: center;
     margin: 40px;
     margin-top: 10px;
 }
-
+div .left {
+    margin-right:50px;
+}
 }
 @media screen and (max-width: 500px){
   /* IF VERTICAL IPHONE 6*/
@@ -180,3 +182,4 @@ table, td {
 input {
     border: none;
 }
+
