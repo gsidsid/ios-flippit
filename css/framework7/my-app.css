@@ -118,11 +118,13 @@ p {
     margin-right: 6%;
 }
 ul {
- text-align: center;
+    text-align: center;
     margin: 40px;
     margin-top: 10px;
 }
-
+div .left {
+    margin-right:50px;
+}
 }
 @media screen and (max-width: 500px){
   /* IF VERTICAL IPHONE 6*/
@@ -152,3 +154,32 @@ p {
 .login-screen {
     overflow: hidden;
 }
+
+i.icon.icon-back {
+    left: -10%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 10px;
+    color:black;
+    font-family: 'Avenir' Roboto;
+    font-size: 16px;
+    margin: 10px;
+    width:95%;
+    height: 100%;
+}
+
+table, td {
+    padding: 5 5 5 5px;
+    border: 1px solid gray;
+}
+
+.button.button-fill.bg-gray, .button.button-fill.color-gray {
+    background:#FF3C00 !important;
+}
+
+input {
+    border: none;
+}
+
