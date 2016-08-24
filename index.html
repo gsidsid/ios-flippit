@@ -58,20 +58,17 @@
 </head>
 
 <body class="theme-orange">
-    <div class="statusbar-overlay" style="background:#D13100;-webkit-transition:400ms;transition:400ms;"></div>
+    <div class="statusbar-overlay" style="background:#FF3C00;-webkit-transition:400ms;transition:400ms;"></div>
     <!-- APP CONTENT BELOW THIS LINE: Preview in device resolution ; FLAT_OS CONFIGURATION-->
 
     <div class="page-content">
-      <div class="views">
+        <div class="views">
       <!-- Your main view, should have "view-main" class -->
       <div class="view view-main">
         <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
         <div class="pages navbar-fixed toolbar-fixed">
           <!-- Page, "data-page" contains page name -->
           <div data-page="index" class="page">
-
-
-          <div data-page="home" class="page toolbar-fixed navbar-fixed">
 
 
           <!-- Toolbar has additional "toolbar-bottom" class -->
@@ -136,16 +133,16 @@
           </div>
 
             <!-- Scrollable page content -->
-            <div class="page-content" id="container">
+            <!-- <div class="page-content" id="container"> -->
                 <div id="active">
                 <!-- deftab is default tab -->
-                    <div id="hometab" data-page="hometab" class="page navbar-fixed">
+                    <div id="hometab" class="page navbar-fixed">
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center">Notecard Sets</div>
             </div>
         </div>
-        <div class="page-content">
+        <!-- <div class="page-content"> -->
 
             <div class="list-block undernav">
                   <ul>
@@ -166,14 +163,14 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    </div>
-</div>
+          </div>
+
+
 
 <!-- ALL TAB VIEWS FOLLOW -->
 <!-- HOME TAB FOLLOWS                                      -->
     <div id="hometab" data-page="hometab" class="page navbar-fixed">
+
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center">Notecard Sets</div>
@@ -195,7 +192,7 @@
                   </ul>
             </div>
         </div>
-        </div>
+    </div>
 <!-- SEARCH TAB FOLLOWS                                      -->
     <div id="searchtab" data-page="searchtab" class="page navbar-fixed">
         <div class="navbar">
@@ -265,6 +262,7 @@
             </div>
         </div>
 
+<!-- MANUAL ENTRY FOLLOWS                                      -->
         <div id="addmantab" data-page="addmantab" class="page navbar-fixed">
             <!-- need device resolution specific css for navbar label here -->
             <div class="navbar">
@@ -275,6 +273,11 @@
                         </a>
                     </div>
                     <div class="center">Manual Entry</div>
+                    <div class="right">
+                        <a onclick="#" class="link">
+                            Done
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="page-content">
@@ -282,7 +285,15 @@
                 <div class="view viewA">
                 <div class="pages">
                 <div class="undernav">
-                <p style="left: 3%; text-align:center; font-size: 20px; margin: 10px;  margin-top:18px;"><input type="text" style="border: none;margin: 0px;margin-top: -18px;height: 200%;display: inline;font-family:'Avenir' Roboto;font-size: 20px;text-align:center" value="New Notecard Set"/></p>
+                    <p style="left: 3%; text-align:center; font-size: 20px; margin: 10px;  margin-top:18px;">
+                        <input type="text" class ="lockedmargin" id="def" style="border: none;margin-top: -18px;height: 200%;display: inline;font-family:'Avenir' Roboto;font-size: 20px;text-align:center" placeholder="Set New Stack Title" onclick="clear()"/>
+                        <script>
+                        function clear() {
+                            console.log("test");
+                            document.getElementById('def').setAttribute('value','');
+                        }
+                        </script>
+                    </p>
                 <table id="mantab" style="cursor:pointer;">
                 <script>
                 function ay() {
@@ -308,13 +319,9 @@
 
                 //}
                 </script>
-                    <tr style="background-color:#FF3C00; color:white;">
-                        <th>Front</th>
-                        <th>Back</th>
-                    </tr>
                     <tr>
-                        <td><input type='text'/></td>
-                        <td><input type='text'/></td>
+                        <td><input type='text' placeholder="Term"/></td>
+                        <td><input type='text' placeholder="Definition"/></td>
                     </tr>
                 </table>
             </div>
@@ -330,11 +337,10 @@
                     var cell2 = row.insertCell(1);
                     cell1.setAttribute('class', 'inp');
                     cell2.setAttribute('class', 'inp');
-                        cell1.innerHTML = "<input type='text'/>"
-                        cell2.innerHTML = "<input type='text'/>"
+                        cell1.innerHTML = "<input type='text' placeholder='Term'/>"
+                        cell2.innerHTML = "<input type='text' placeholder='Definition'/>"
                 }
                 </script>
-                <a href="#" style="margin-left:45px" class="button button-raised button-fill color-gray">Finish Deck</a>
                 <br><br><br>
             </p>
             </div>
@@ -343,6 +349,7 @@
             </div>
         </div>
 
+<!-- AUTOMATIC ENTRY FOLLOWS                                                  -->
         <div id="addauttab" data-page="addauttab" class="page navbar-fixed">
             <div class="navbar">
                 <div class="navbar-inner">

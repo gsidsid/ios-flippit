@@ -5335,20 +5335,20 @@ html:not(.watch-active-state) .speed-dial-buttons a.bg-orange:active,
   color: #fff;
 }
 .color-deeporange {
-  color: #ff5722;
+  color: #FF3C00;
 }
 .list-block .item-link.list-button.color-deeporange,
 .list-block .item-link.color-deeporange,
 .tabbar a.active.color-deeporange,
 a.color-deeporange {
-  color: #ff5722;
+  color: #FF3C00;
 }
 .label-switch input[type="checkbox"]:checked + .checkbox.color-deeporange,
 .label-switch.color-deeporange input[type="checkbox"]:checked + .checkbox {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange .button:not(.button-fill) {
-  color: #ff5722;
+  color: #FF3C00;
 }
 .theme-deeporange .navbar .button:not(.button-fill),
 .theme-deeporange.navbar .button:not(.button-fill),
@@ -5360,26 +5360,26 @@ a.color-deeporange {
 }
 .button.color-deeporange:not(.button-fill),
 .color-deeporange.buttons-row .button:not(.button-fill) {
-  color: #ff5722 !important;
+  color: #FF3C00 !important;
 }
 .theme-deeporange .button.button-fill {
-  background: #ff5722;
+  background: #FF3C00;
   color: #fff;
 }
 html:not(.watch-active-state) .theme-deeporange .button.button-fill:active,
 .theme-deeporange .button.button-fill.active-state {
-  background: #E64A19;
+  background: #FF3C00;
 }
 .button.button-fill.bg-deeporange,
 .button.button-fill.color-deeporange {
-  background: #ff5722 !important;
+  background: #FF3C00 !important;
   color: #fff;
 }
 html:not(.watch-active-state) .button.button-fill.bg-deeporange:active,
 html:not(.watch-active-state) .button.button-fill.color-deeporange:active,
 .button.button-fill.bg-deeporange.active-state,
 .button.button-fill.color-deeporange.active-state {
-  background: #E64A19 !important;
+  background: #FF3C00 !important;
 }
 .progressbar.color-deeporange,
 .progressbar.theme-deeporange,
@@ -5391,7 +5391,7 @@ html:not(.watch-active-state) .button.button-fill.color-deeporange:active,
 .progressbar.theme-deeporange span,
 .theme-deeporange .progressbar span,
 .progressbar.bg-deeporange span {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .progressbar-infinite.color-deeporange,
 .progressbar-infinite.theme-deeporange,
@@ -5407,44 +5407,44 @@ html:not(.watch-active-state) .button.button-fill.color-deeporange:active,
 .progressbar-infinite.theme-deeporange:before,
 .theme-deeporange .progressbar-infinite:before,
 .progressbar-infinite.bg-deeporange:before {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .color-deeporange i.icon,
 i.icon.color-deeporange {
-  color: #ff5722;
+  color: #FF3C00;
 }
 i.icon-next.color-deeporange,
 i.icon-next.theme-deeporange {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20fill%3D'%23ff5722'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M10%206L8.59%207.41%2013.17%2012l-4.58%204.59L10%2018l6-6z'%2F%3E%3Cpath%20d%3D'M0%200h24v24H0z'%20fill%3D'none'%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20fill%3D'%23FF3C00'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M10%206L8.59%207.41%2013.17%2012l-4.58%204.59L10%2018l6-6z'%2F%3E%3Cpath%20d%3D'M0%200h24v24H0z'%20fill%3D'none'%2F%3E%3C%2Fsvg%3E");
 }
 i.icon-prev.color-deeporange,
 i.icon-prev.theme-deeporange {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20fill%3D'%23ff5722'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M15.41%207.41L14%206l-6%206%206%206%201.41-1.41L10.83%2012z'%2F%3E%3Cpath%20d%3D'M0%200h24v24H0z'%20fill%3D'none'%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20fill%3D'%23FF3C00'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M15.41%207.41L14%206l-6%206%206%206%201.41-1.41L10.83%2012z'%2F%3E%3Cpath%20d%3D'M0%200h24v24H0z'%20fill%3D'none'%2F%3E%3C%2Fsvg%3E");
 }
 i.icon-back.color-deeporange,
 i.icon-back.theme-deeporange {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M20%2011H7.83l5.59-5.59L12%204l-8%208%208%208%201.41-1.41L7.83%2013H20v-2z'%20fill%3D'%23ff5722'%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M20%2011H7.83l5.59-5.59L12%204l-8%208%208%208%201.41-1.41L7.83%2013H20v-2z'%20fill%3D'%23FF3C00'%2F%3E%3C%2Fsvg%3E");
 }
 i.icon-forward.color-deeporange,
 i.icon-forward.theme-deeporange {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M12%204l-1.41%201.41L16.17%2011H4v2h12.17l-5.58%205.59L12%2020l8-8z'%20fill%3D'%23ff5722'%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M12%204l-1.41%201.41L16.17%2011H4v2h12.17l-5.58%205.59L12%2020l8-8z'%20fill%3D'%23FF3C00'%2F%3E%3C%2Fsvg%3E");
 }
 i.icon-bars.color-deeporange,
 i.icon-bars.theme-deeporange {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M3%2018h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'%20fill%3D'%23ff5722'%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M3%2018h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'%20fill%3D'%23FF3C00'%2F%3E%3C%2Fsvg%3E");
 }
 .preloader.color-deeporange svg circle,
 .preloader.preloader-deeporange svg circle {
-  stroke: #ff5722;
+  stroke: #FF3C00;
 }
 .preloader.color-deeporange .preloader-inner-gap,
 .preloader.preloader-deeporange .preloader-inner-gap,
 .preloader.color-deeporange .preloader-inner-half-circle,
 .preloader.preloader-deeporange .preloader-inner-half-circle {
-  border-color: #ff5722;
+  border-color: #FF3C00;
 }
 .theme-deeporange a {
-  color: #ff5722;
+  color: #FF3C00;
 }
 .theme-deeporange .navbar,
 .navbar.theme-deeporange,
@@ -5454,27 +5454,27 @@ i.icon-bars.theme-deeporange {
 .subnavbar.theme-deeporange,
 .theme-deeporange .searchbar,
 .searchbar.theme-deeporange {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange .range-slider input[type="range"]::-webkit-slider-thumb:before,
 .range-slider.theme-deeporange input[type="range"]::-webkit-slider-thumb:before {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange .range-slider input[type="range"]::-webkit-slider-thumb,
 .range-slider.theme-deeporange input[type="range"]::-webkit-slider-thumb {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange .range-slider input[type="range"]::-ms-thumb,
 .range-slider.theme-deeporange input[type="range"]::-ms-thumb {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange .range-slider input[type="range"]::-ms-fill-lower,
 .range-slider.theme-deeporange input[type="range"]::-ms-fill-lower {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange .range-slider input[type="range"]::-moz-range-thumb,
 .range-slider.theme-deeporange input[type="range"]::-moz-range-thumb {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange .label-switch input[type="checkbox"]:checked + .checkbox,
 .label-switch.theme-deeporange input[type="checkbox"]:checked + .checkbox {
@@ -5482,7 +5482,7 @@ i.icon-bars.theme-deeporange {
 }
 .theme-deeporange .label-switch input[type="checkbox"]:checked + .checkbox:after,
 .label-switch.theme-deeporange input[type="checkbox"]:checked + .checkbox:after {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange label.label-checkbox,
 label.label-checkbox.theme-deeporange {
@@ -5504,12 +5504,12 @@ label.label-checkbox.theme-deeporange input[type="radio"]:checked ~ .item-after 
 label.label-checkbox.theme-deeporange input[type="checkbox"]:checked ~ .item-inner i.icon-form-checkbox,
 .theme-deeporange label.label-checkbox input[type="radio"]:checked ~ .item-inner i.icon-form-checkbox,
 label.label-checkbox.theme-deeporange input[type="radio"]:checked ~ .item-inner i.icon-form-checkbox {
-  border-color: #ff5722;
-  background-color: #ff5722;
+  border-color: #FF3C00;
+  background-color: #FF3C00;
 }
 .theme-deeporange label.label-radio i.icon-form-radio:after,
 label.label-radio.theme-deeporange i.icon-form-radio:after {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange label.label-radio input[type="checkbox"]:checked + .item-media i.icon-form-radio,
 label.label-radio.theme-deeporange input[type="checkbox"]:checked + .item-media i.icon-form-radio,
@@ -5523,7 +5523,7 @@ label.label-radio.theme-deeporange input[type="radio"]:checked ~ .item-after i.i
 label.label-radio.theme-deeporange input[type="checkbox"]:checked ~ .item-inner i.icon-form-radio,
 .theme-deeporange label.label-radio input[type="radio"]:checked ~ .item-inner i.icon-form-radio,
 label.label-radio.theme-deeporange input[type="radio"]:checked ~ .item-inner i.icon-form-radio {
-  border-color: #ff5722;
+  border-color: #FF3C00;
 }
 .theme-deeporange label.label-radio input[type="checkbox"]:checked + .item-media i.icon-form-radio:after,
 label.label-radio.theme-deeporange input[type="checkbox"]:checked + .item-media i.icon-form-radio:after,
@@ -5537,41 +5537,41 @@ label.label-radio.theme-deeporange input[type="radio"]:checked ~ .item-after i.i
 label.label-radio.theme-deeporange input[type="checkbox"]:checked ~ .item-inner i.icon-form-radio:after,
 .theme-deeporange label.label-radio input[type="radio"]:checked ~ .item-inner i.icon-form-radio:after,
 label.label-radio.theme-deeporange input[type="radio"]:checked ~ .item-inner i.icon-form-radio:after {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange .focus-state .label,
 .theme-deeporange .focus-state .floating-label {
-  color: #ff5722;
+  color: #FF3C00;
 }
 .theme-deeporange .item-input-field.focus-state:after,
 .theme-deeporange .input-field.focus-state:after,
 .theme-deeporange .item-input-field.not-empty-state:after,
 .theme-deeporange .input-field.not-empty-state:after {
-  background: #ff5722;
+  background: #FF3C00;
 }
 .theme-deeporange .picker-calendar-day.picker-calendar-day-today span {
-  color: #ff5722;
+  color: #FF3C00;
 }
 .theme-deeporange .picker-calendar-day.picker-calendar-day-selected span {
-  background-color: #ff5722;
+  background-color: #FF3C00;
   color: #fff;
 }
 .theme-deeporange .picker-calendar-day.picker-calendar-day-has-events span:after {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange .picker-header {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange .modal-button {
-  color: #ff5722;
+  color: #FF3C00;
 }
 .swiper-pagination.color-deeporange .swiper-pagination-bullet-active,
 .theme-deeporange .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .swiper-pagination.color-deeporange .swiper-pagination-progressbar,
 .theme-deeporange .swiper-pagination .swiper-pagination-progressbar {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .swiper-pagination.swiper-pagination-progress.bg-deeporange {
   background-color: rgba(255, 87, 34, 0.25);
@@ -5580,19 +5580,19 @@ label.label-radio.theme-deeporange input[type="radio"]:checked ~ .item-inner i.i
 .swiper-container-rtl .swiper-button-prev.color-deeporange,
 .theme-deeporange .swiper-button-next,
 .theme-deeporange .swiper-container-rtl .swiper-button-prev {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ff5722'%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23FF3C00'%2F%3E%3C%2Fsvg%3E");
 }
 .swiper-button-prev.color-deeporange,
 .swiper-container-rtl .swiper-button-next.color-deeporange,
 .theme-deeporange .swiper-button-prev,
 .theme-deeporange .swiper-container-rtl .swiper-button-next {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ff5722'%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23FF3C00'%2F%3E%3C%2Fsvg%3E");
 }
 .bg-deeporange,
 a.bg-deeporange,
 .list-block .swipeout-actions-left a.bg-deeporange,
 .list-block .swipeout-actions-right a.bg-deeporange {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 html:not(.watch-active-state) .list-block .bg-deeporange .item-link:active,
 html:not(.watch-active-state) .list-block a.bg-deeporange .item-link:active,
@@ -5618,10 +5618,10 @@ html:not(.watch-active-state) .list-block .item-link.list-block .swipeout-action
 .list-block .item-linka.bg-deeporange.active-state,
 .list-block .item-link.list-block .swipeout-actions-left a.bg-deeporange.active-state,
 .list-block .item-link.list-block .swipeout-actions-right a.bg-deeporange.active-state {
-  background: #E64A19;
+  background: #FF3C00;
 }
 .border-deeporange {
-  border-color: #ff5722;
+  border-color: #FF3C00;
 }
 .list-block .border-deeporange.item-inner:after,
 .list-block ul.border-deeporange:after,
@@ -5629,7 +5629,7 @@ html:not(.watch-active-state) .list-block .item-link.list-block .swipeout-action
 .list-block .border-deeporange.item-inner:before,
 .list-block ul.border-deeporange:before,
 .border-deeporange:before {
-  background-color: #ff5722;
+  background-color: #FF3C00;
 }
 .theme-deeporange .floating-button,
 .theme-deeporange .speed-dial-buttons a,
@@ -5640,7 +5640,7 @@ html:not(.watch-active-state) .list-block .item-link.list-block .swipeout-action
 .floating-button.bg-deeporange,
 .speed-dial-buttons a.bg-deeporange {
   color: #fff;
-  background: #ff5722;
+  background: #FF3C00;
 }
 html:not(.watch-active-state) .theme-deeporange .floating-button:active,
 html:not(.watch-active-state) .theme-deeporange .speed-dial-buttons a:active,
@@ -5658,7 +5658,7 @@ html:not(.watch-active-state) .speed-dial-buttons a.bg-deeporange:active,
 .speed-dial-buttons a.color-deeporange.active-state,
 .floating-button.bg-deeporange.active-state,
 .speed-dial-buttons a.bg-deeporange.active-state {
-  background: #E64A19;
+  background: #FF3C00;
 }
 .theme-deeporange .floating-button i,
 .theme-deeporange .speed-dial-buttons a i,
@@ -5675,7 +5675,7 @@ html:not(.watch-active-state) .speed-dial-buttons a.bg-deeporange:active,
 }
 .badge.color-deeporange,
 .badge.theme-deeporange {
-  background-color: #ff5722;
+  background-color: #FF3C00;
   color: #fff;
 }
 .color-brown {

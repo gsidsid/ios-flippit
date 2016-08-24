@@ -110,6 +110,12 @@ div {
     right: 3%;
     position: relative;
 }
+table, tr {
+    padding: 10 10 10 10px;
+    border-bottom: 1px solid gray;
+    width: 80%;
+    margin-left: 11%;
+}
 }
 
 @media screen and (min-width: 500px){
@@ -125,9 +131,23 @@ ul {
 div .left {
     margin-right:50px;
 }
+table, tr {
+    padding: 10 10 10 10px;
+    border-bottom: 1px solid gray;
+    width: 80%;
+    margin-left: 11%;
 }
+}
+
+.lockedmargin:focus::-webkit-input-placeholder  {
+    color:transparent;
+}
+
 @media screen and (max-width: 500px){
   /* IF VERTICAL IPHONE 6*/
+.lockedmargin {
+    margin-left: -3%;
+}
 p {
     margin-right: 12%;
 }
@@ -138,6 +158,15 @@ p {
     color:#FF3C00;
     font-weight: 100;
     font-size: 80px;
+}
+input {
+    width:100%;
+}
+table{
+    padding: 10 10 10 10px;
+    border-bottom: 1px solid gray;
+    width: 80%;
+    margin-left: 9.5%;
 }
 }
 
@@ -160,19 +189,20 @@ i.icon.icon-back {
 }
 
 table {
+    display:table;
     border-collapse: collapse;
     border-spacing: 10px;
     color:black;
     font-family: 'Avenir' Roboto;
     font-size: 16px;
-    margin: 10px;
-    width:95%;
+    width: 80%;
     height: 100%;
 }
 
-table, td {
-    padding: 5 5 5 5px;
-    border: 1px solid gray;
+
+#mantab input {
+    font-family: 'Avenir' Roboto;
+    font-size: 16px;
 }
 
 .button.button-fill.bg-gray, .button.button-fill.color-gray {
