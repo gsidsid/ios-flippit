@@ -166,13 +166,18 @@ table {
     font-family: 'Avenir' Roboto;
     font-size: 16px;
     margin: 10px;
-    width:95%;
+    width: 95%;
     height: 100%;
 }
 
 table, td {
-    padding: 5 5 5 5px;
-    border: 1px solid gray;
+    padding: 10 10 10 10px;
+    border-bottom: 1px solid gray;
+}
+
+#mantab input {
+    font-family: 'Avenir' Roboto;
+    font-size: 16px;
 }
 
 .button.button-fill.bg-gray, .button.button-fill.color-gray {
