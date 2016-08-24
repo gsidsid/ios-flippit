@@ -93,7 +93,7 @@ div {
 }
 
 
-@media screen and (max-height: 320px){
+@media screen and (max-height: 321px){
     /* IPHONE 5 WIDESCREEN */
 .login-screen-title {
     background: #FFFFFF;
@@ -170,11 +170,68 @@ table{
 }
 }
 
-@media screen and (min-width: 736px){
+@media screen and (max-width: 568px){
 .button.button-fill.bg-orange, .button.button-fill.color-orange {
     text-align: center;
     width: 78vw;
     height: 5%;
+    margin-top: -8vw;
+    position: relative;
+    left:-13px;
+}
+}
+
+@media screen and (max-width: 376px){
+.button.button-fill.bg-orange, .button.button-fill.color-orange {
+    text-align: center;
+    width: 78vw;
+    height: 5%;
+    margin-top: -2vw;
+    position: relative;
+    left:3px;
+}
+}
+
+
+@media screen and (max-width: 320px){
+.button.button-fill.bg-orange, .button.button-fill.color-orange {
+    text-align: center;
+    width: 78vw;
+    height: 5%;
+    margin-top: -2vw;
+    position: relative;
+    left:-3px;
+}
+}
+
+@media screen and (width: 414px){
+.button.button-fill.bg-orange, .button.button-fill.color-orange {
+    text-align: center;
+    width: 78vw;
+    height: 5%;
+    left: 5px;
+    margin-top: -2vw;
+    position: relative;
+}
+}
+
+@media screen and (min-width: 767px){
+.button.button-fill.bg-orange, .button.button-fill.color-orange {
+    text-align: center;
+    width: 78vw;
+    height: 5%;
+    left: 0.5%;
+    margin-top: -2vw;
+    position: relative;
+}
+}
+
+@media screen and (min-width: 1000px){
+.button.button-fill.bg-orange, .button.button-fill.color-orange {
+    text-align: center;
+    width: 78vw;
+    height: 5%;
+    left: 3%;
     margin-top: -2vw;
     position: relative;
 }
