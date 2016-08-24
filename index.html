@@ -235,8 +235,8 @@
             <div class="page-content">
         <div class="list-block undernav">
                   <ul>
-                    <li>
-                      <a onclick="oncma()" class="item-link list-button addcard" style="font-size:30px; padding-top:15px;">Automatic Entry<br><div class="miniText" style="font-size:12px;">Take a picture of a list to automagically generate flashcards!</div></a>
+                    <li >
+                      <a onclick="oncma()" class="item-link list-button addcard" style="font-size:24px; padding-top:15px;">Automatic Entry<p><div class="miniText" style="margin-top:-39px;font-size:10px;margin-bottom:-25px">Take a picture of a list to automagically generate flashcards!</div></p></a>
                         <script>
                         //switch active div to hometab div
                             function oncma() {
@@ -247,7 +247,7 @@
                         </script>
                     </li>
                     <li>
-                       <a onclick="oncam()" class="item-link list-button addcard" style="font-size:30px; padding-top:15px;">Manual Entry<br><div class="miniText" style="font-size:12px;">Type up your flashcards. Proven to be as accurate as you are.</div></a>
+                       <a onclick="oncam(); showHelp();" class="item-link list-button addcard" style="font-size:24px; padding-top:15px; ">Manual Entry<br><div class="miniText" style="margin-top:-15px;font-size:10px;">Type up your flashcards. Proven to be as accurate as you are.</div></a>
                         <script>
                         //switch active div to hometab div
                             function oncam() {
@@ -262,6 +262,20 @@
             </div>
         </div>
 
+    <div id="popovercontent">
+    <div class="popover popover-help" style="margin-top:67%; text-align:center; width:70%;margin-left:15%" >
+        <!-- Popover's angle arrow -->
+        <div class="popover-angle"></div>
+
+        <!-- Popover content -->
+        <div class="popover-inner" style="text-align:center; margin-left:20px;">
+            <div class="content-block">
+                <p>Tap "Term" and "Definition" to begin entering content that belongs on either side of the card. Once the row is filled, a new card slot will appear.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
 <!-- MANUAL ENTRY FOLLOWS                                      -->
         <div id="addmantab" data-page="addmantab" class="page navbar-fixed">
             <!-- need device resolution specific css for navbar label here -->
@@ -274,7 +288,7 @@
                     </div>
                     <div class="center">Manual Entry</div>
                     <div class="right">
-                        <a onclick="#" class="link">
+                        <a class="link" onclick="onca()">
                             Done
                         </a>
                     </div>
@@ -296,6 +310,9 @@
                     </p>
                 <table id="mantab" style="cursor:pointer;">
                 <script>
+
+                var boo = false;
+
                 function ay() {
                     var table = document.getElementById("mantab");
                     if (table != null) {
@@ -317,10 +334,31 @@
                         x.innerHTML = "tapped";
                     }
 
+                    function waitSeconds(iMilliSeconds) {
+                        var counter= 0
+                            , start = new Date().getTime()
+                            , end = 0;
+                        while (counter < iMilliSeconds) {
+                            end = new Date().getTime();
+                            counter = end - start;
+                        }
+                    }
+
+                    function showHelp() {
+                        if(!boo) {
+                            myApp.popup(document.getElementById("popovercontent").innerHTML, true);
+                            boo = true;
+                        } else {
+
+                        }
+                    }
+
                 //}
                 </script>
                     <tr>
-                        <td><input type='text' placeholder="Term"/></td>
+                        <td><input type='text' placeholder="Term"/>
+                        <a href="#" data-popover=".popover-help" class="open-popover modal-in"></a>
+                        </td>
                         <td><input type='text' placeholder="Definition"/></td>
                     </tr>
                 </table>
