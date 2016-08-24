@@ -1,12 +1,12 @@
 // Initialize your app
 var myApp = new Framework7({
-    tapHold:true,
-    animateNavBackIcon: true,
-    swipeBackPage:true
+    tapHold:true
 });
 
 // Export selectors engine
 var $$ = Dom7;
+
+// Add view
 
 $$('.nset').on('taphold', function () {
   var buttons = [
@@ -29,12 +29,40 @@ $$('.nset').on('taphold', function () {
     myApp.actions(buttons);
 });
 
-
-
-// Add view
 var mainView = myApp.addView('.view-main', {
 });
+console.log("help");
 
+$$(document).on('ajaxStart', function (e)
+{
+    //mostrar loading
+    myApp.showPreloader('Loading...');
+});
+
+
+myApp.onPageInit('home', function (page) {
+    console.log("heat");
+    $$('.nset').on('taphold', function () {
+  var buttons = [
+        {
+            text: 'Edit Options',
+            label: true
+        },
+        {
+            text: 'Add cards',
+            bold: true
+        },
+        {
+            text: 'Edit cards',
+        },
+        {
+            text: 'Cancel',
+            color: 'red'
+        },
+    ];
+    myApp.actions(buttons);
+});
+});
 
 /*
 // Callbacks to run specific code for specific pages, for example for About page:
