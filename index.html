@@ -244,10 +244,17 @@
                                 var auttab = document.getElementById('addauttab');
                                 home.innerHTML = nodeToString(auttab);
                             }
+                        
+                        	function hideTools() {
+                        		$(".toolbar").hide();
+                        	}
+                        	function showTools() {
+                        		$(".toolbar").show();
+                        	}
                         </script>
                     </li>
                     <li>
-                       <a onclick="oncam(); showHelp();" class="item-link list-button addcard" style="font-size:24px; padding-top:15px; ">Manual Entry<br><div class="miniText" style="margin-top:-15px;font-size:10px;">Type up your flashcards. Proven to be as accurate as you are.</div></a>
+                       <a onclick="oncam(); showHelp(); hideTools();" class="item-link list-button addcard" style="font-size:24px; padding-top:15px; ">Manual Entry<br><div class="miniText" style="margin-top:-15px;font-size:10px;">Type up your flashcards. Proven to be as accurate as you are.</div></a>
                         <script>
                         //switch active div to hometab div
                             function oncam() {
@@ -282,13 +289,13 @@
             <div class="navbar">
                 <div class="navbar-inner">
                     <div class="left">
-                        <a onclick="onca()" class="link">
+                        <a onclick="onca(); showTools();" class="link">
                             <i class="icon icon-back"></i>
                         </a>
                     </div>
                     <div class="center">Manual Entry</div>
                     <div class="right">
-                        <a class="link" onclick="onca()">
+                        <a class="link" onclick="onca(); showTools();">
                             Done
                         </a>
                     </div>
@@ -308,23 +315,29 @@
                         }
                         </script>
                     </p>
-                <table id="mantab" style="cursor:pointer;">
+                <table id="mantab" style="cursor:pointer;" onkeypress="scan(event)">
                 <script>
 
                 var boo = false;
-
-                function ay() {
+				
                     var table = document.getElementById("mantab");
-                    if (table != null) {
+                    
+                    function scan(e) {
+                    	var can = true;
                         for (var i = 0; i < table.rows.length; i++) {
-                            for (var j = 0; j < table.rows[i].cells.length; j++)
-                            table.rows[i].cells[j].onclick = function () {
-                                atVal(this);
-                            };
+                            for		
+                                    if (e.keyCode == 13) {
+                                    		addrow();
+                                    		break;
+                                    	}
+                                    }
+                                //} );
+                            
                         }
-                    }
-                }
-
+                    
+                    
+                    
+                 
                     function atVal(cel) {
                         cel.innerHTML = "tapped";
                     }
@@ -356,10 +369,10 @@
                 //}
                 </script>
                     <tr>
-                        <td><input type='text' placeholder="Term"/>
+                        <td><input type='text' placeholder="Term" class="inp"/>
                         <a href="#" data-popover=".popover-help" class="open-popover modal-in"></a>
                         </td>
-                        <td><input type='text' placeholder="Definition"/></td>
+                        <td><input type='text' placeholder="Definition" class="inp"/></td>
                     </tr>
                 </table>
             </div>

@@ -118,6 +118,13 @@ table, tr {
 }
 }
 
+table, tr {
+    padding: 10 10 10 10px;
+    border-bottom: 1px solid gray;
+    width: 80%;
+    margin-left: 11%;
+}
+
 @media screen and (min-width: 500px){
     /* IF HORIZONTAL IPHONE 6 */
 p {
