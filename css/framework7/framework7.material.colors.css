@@ -4991,20 +4991,20 @@ html:not(.watch-active-state) .speed-dial-buttons a.bg-amber:active,
   color: #fff;
 }
 .color-orange {
-  color: #FF3C00;
+  color: #708090;
 }
 .list-block .item-link.list-button.color-orange,
 .list-block .item-link.color-orange,
 .tabbar a.active.color-orange,
 a.color-orange {
-  color: #FF3C00;
+  color: #708090;
 }
 .label-switch input[type="checkbox"]:checked + .checkbox.color-orange,
 .label-switch.color-orange input[type="checkbox"]:checked + .checkbox {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange .button:not(.button-fill) {
-  color: #FF3C00;
+  color: #708090;
 }
 .theme-orange .navbar .button:not(.button-fill),
 .theme-orange.navbar .button:not(.button-fill),
@@ -5016,26 +5016,26 @@ a.color-orange {
 }
 .button.color-orange:not(.button-fill),
 .color-orange.buttons-row .button:not(.button-fill) {
-  color: #FF3C00 !important;
+  color: #708090 !important;
 }
 .theme-orange .button.button-fill {
-  background: #FF3C00;
+  background: #708090;
   color: #fff;
 }
 html:not(.watch-active-state) .theme-orange .button.button-fill:active,
 .theme-orange .button.button-fill.active-state {
-  background: #F57C00;
+  background: #8C99A6;
 }
 .button.button-fill.bg-orange,
 .button.button-fill.color-orange {
-  background: #FF3C00 !important;
+  background: #708090 !important;
   color: #fff;
 }
 html:not(.watch-active-state) .button.button-fill.bg-orange:active,
 html:not(.watch-active-state) .button.button-fill.color-orange:active,
 .button.button-fill.bg-orange.active-state,
 .button.button-fill.color-orange.active-state {
-  background: #F57C00 !important;
+  background: #8C99A6 !important;
 }
 .progressbar.color-orange,
 .progressbar.theme-orange,
@@ -5047,7 +5047,7 @@ html:not(.watch-active-state) .button.button-fill.color-orange:active,
 .progressbar.theme-orange span,
 .theme-orange .progressbar span,
 .progressbar.bg-orange span {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .progressbar-infinite.color-orange,
 .progressbar-infinite.theme-orange,
@@ -5063,11 +5063,11 @@ html:not(.watch-active-state) .button.button-fill.color-orange:active,
 .progressbar-infinite.theme-orange:before,
 .theme-orange .progressbar-infinite:before,
 .progressbar-infinite.bg-orange:before {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .color-orange i.icon,
 i.icon.color-orange {
-  color: #FF3C00;
+  color: #708090;
 }
 i.icon-next.color-orange,
 i.icon-next.theme-orange {
@@ -5091,16 +5091,16 @@ i.icon-bars.theme-orange {
 }
 .preloader.color-orange svg circle,
 .preloader.preloader-orange svg circle {
-  stroke: #FF3C00;
+  stroke: #708090;
 }
 .preloader.color-orange .preloader-inner-gap,
 .preloader.preloader-orange .preloader-inner-gap,
 .preloader.color-orange .preloader-inner-half-circle,
 .preloader.preloader-orange .preloader-inner-half-circle {
-  border-color: #FF3C00;
+  border-color: #708090;
 }
 .theme-orange a {
-  color: #FF3C00;
+  color: #708090;
 }
 .theme-orange .navbar,
 .navbar.theme-orange,
@@ -5110,27 +5110,27 @@ i.icon-bars.theme-orange {
 .subnavbar.theme-orange,
 .theme-orange .searchbar,
 .searchbar.theme-orange {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange .range-slider input[type="range"]::-webkit-slider-thumb:before,
 .range-slider.theme-orange input[type="range"]::-webkit-slider-thumb:before {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange .range-slider input[type="range"]::-webkit-slider-thumb,
 .range-slider.theme-orange input[type="range"]::-webkit-slider-thumb {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange .range-slider input[type="range"]::-ms-thumb,
 .range-slider.theme-orange input[type="range"]::-ms-thumb {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange .range-slider input[type="range"]::-ms-fill-lower,
 .range-slider.theme-orange input[type="range"]::-ms-fill-lower {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange .range-slider input[type="range"]::-moz-range-thumb,
 .range-slider.theme-orange input[type="range"]::-moz-range-thumb {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange .label-switch input[type="checkbox"]:checked + .checkbox,
 .label-switch.theme-orange input[type="checkbox"]:checked + .checkbox {
@@ -5138,7 +5138,7 @@ i.icon-bars.theme-orange {
 }
 .theme-orange .label-switch input[type="checkbox"]:checked + .checkbox:after,
 .label-switch.theme-orange input[type="checkbox"]:checked + .checkbox:after {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange label.label-checkbox,
 label.label-checkbox.theme-orange {
@@ -5160,12 +5160,12 @@ label.label-checkbox.theme-orange input[type="radio"]:checked ~ .item-after i.ic
 label.label-checkbox.theme-orange input[type="checkbox"]:checked ~ .item-inner i.icon-form-checkbox,
 .theme-orange label.label-checkbox input[type="radio"]:checked ~ .item-inner i.icon-form-checkbox,
 label.label-checkbox.theme-orange input[type="radio"]:checked ~ .item-inner i.icon-form-checkbox {
-  border-color: #FF3C00;
-  background-color: #FF3C00;
+  border-color: #708090;
+  background-color: #708090;
 }
 .theme-orange label.label-radio i.icon-form-radio:after,
 label.label-radio.theme-orange i.icon-form-radio:after {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange label.label-radio input[type="checkbox"]:checked + .item-media i.icon-form-radio,
 label.label-radio.theme-orange input[type="checkbox"]:checked + .item-media i.icon-form-radio,
@@ -5179,7 +5179,7 @@ label.label-radio.theme-orange input[type="radio"]:checked ~ .item-after i.icon-
 label.label-radio.theme-orange input[type="checkbox"]:checked ~ .item-inner i.icon-form-radio,
 .theme-orange label.label-radio input[type="radio"]:checked ~ .item-inner i.icon-form-radio,
 label.label-radio.theme-orange input[type="radio"]:checked ~ .item-inner i.icon-form-radio {
-  border-color: #FF3C00;
+  border-color: #708090;
 }
 .theme-orange label.label-radio input[type="checkbox"]:checked + .item-media i.icon-form-radio:after,
 label.label-radio.theme-orange input[type="checkbox"]:checked + .item-media i.icon-form-radio:after,
@@ -5193,41 +5193,41 @@ label.label-radio.theme-orange input[type="radio"]:checked ~ .item-after i.icon-
 label.label-radio.theme-orange input[type="checkbox"]:checked ~ .item-inner i.icon-form-radio:after,
 .theme-orange label.label-radio input[type="radio"]:checked ~ .item-inner i.icon-form-radio:after,
 label.label-radio.theme-orange input[type="radio"]:checked ~ .item-inner i.icon-form-radio:after {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange .focus-state .label,
 .theme-orange .focus-state .floating-label {
-  color: #FF3C00;
+  color: #708090;
 }
 .theme-orange .item-input-field.focus-state:after,
 .theme-orange .input-field.focus-state:after,
 .theme-orange .item-input-field.not-empty-state:after,
 .theme-orange .input-field.not-empty-state:after {
-  background: #FF3C00;
+  background: #708090;
 }
 .theme-orange .picker-calendar-day.picker-calendar-day-today span {
-  color: #FF3C00;
+  color: #708090;
 }
 .theme-orange .picker-calendar-day.picker-calendar-day-selected span {
-  background-color: #FF3C00;
+  background-color: #708090;
   color: #fff;
 }
 .theme-orange .picker-calendar-day.picker-calendar-day-has-events span:after {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange .picker-header {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange .modal-button {
-  color: #FF3C00;
+  color: #708090;
 }
 .swiper-pagination.color-orange .swiper-pagination-bullet-active,
 .theme-orange .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .swiper-pagination.color-orange .swiper-pagination-progressbar,
 .theme-orange .swiper-pagination .swiper-pagination-progressbar {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .swiper-pagination.swiper-pagination-progress.bg-orange {
   background-color: rgba(255, 152, 0, 0.25);
@@ -5248,7 +5248,7 @@ label.label-radio.theme-orange input[type="radio"]:checked ~ .item-inner i.icon-
 a.bg-orange,
 .list-block .swipeout-actions-left a.bg-orange,
 .list-block .swipeout-actions-right a.bg-orange {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 html:not(.watch-active-state) .list-block .bg-orange .item-link:active,
 html:not(.watch-active-state) .list-block a.bg-orange .item-link:active,
@@ -5274,10 +5274,10 @@ html:not(.watch-active-state) .list-block .item-link.list-block .swipeout-action
 .list-block .item-linka.bg-orange.active-state,
 .list-block .item-link.list-block .swipeout-actions-left a.bg-orange.active-state,
 .list-block .item-link.list-block .swipeout-actions-right a.bg-orange.active-state {
-  background: #F57C00;
+  background: #8C99A6;
 }
 .border-orange {
-  border-color: #FF3C00;
+  border-color: #708090;
 }
 .list-block .border-orange.item-inner:after,
 .list-block ul.border-orange:after,
@@ -5285,7 +5285,7 @@ html:not(.watch-active-state) .list-block .item-link.list-block .swipeout-action
 .list-block .border-orange.item-inner:before,
 .list-block ul.border-orange:before,
 .border-orange:before {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-orange .floating-button,
 .theme-orange .speed-dial-buttons a,
@@ -5296,7 +5296,7 @@ html:not(.watch-active-state) .list-block .item-link.list-block .swipeout-action
 .floating-button.bg-orange,
 .speed-dial-buttons a.bg-orange {
   color: #fff;
-  background: #FF3C00;
+  background: #708090;
 }
 html:not(.watch-active-state) .theme-orange .floating-button:active,
 html:not(.watch-active-state) .theme-orange .speed-dial-buttons a:active,
@@ -5314,7 +5314,7 @@ html:not(.watch-active-state) .speed-dial-buttons a.bg-orange:active,
 .speed-dial-buttons a.color-orange.active-state,
 .floating-button.bg-orange.active-state,
 .speed-dial-buttons a.bg-orange.active-state {
-  background: #F57C00;
+  background: #8C99A6;
 }
 .theme-orange .floating-button i,
 .theme-orange .speed-dial-buttons a i,
@@ -5331,24 +5331,24 @@ html:not(.watch-active-state) .speed-dial-buttons a.bg-orange:active,
 }
 .badge.color-orange,
 .badge.theme-orange {
-  background-color: #FF3C00;
+  background-color: #708090;
   color: #fff;
 }
 .color-deeporange {
-  color: #FF3C00;
+  color: #708090;
 }
 .list-block .item-link.list-button.color-deeporange,
 .list-block .item-link.color-deeporange,
 .tabbar a.active.color-deeporange,
 a.color-deeporange {
-  color: #FF3C00;
+  color: #708090;
 }
 .label-switch input[type="checkbox"]:checked + .checkbox.color-deeporange,
 .label-switch.color-deeporange input[type="checkbox"]:checked + .checkbox {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange .button:not(.button-fill) {
-  color: #FF3C00;
+  color: #708090;
 }
 .theme-deeporange .navbar .button:not(.button-fill),
 .theme-deeporange.navbar .button:not(.button-fill),
@@ -5360,26 +5360,26 @@ a.color-deeporange {
 }
 .button.color-deeporange:not(.button-fill),
 .color-deeporange.buttons-row .button:not(.button-fill) {
-  color: #FF3C00 !important;
+  color: #708090 !important;
 }
 .theme-deeporange .button.button-fill {
-  background: #FF3C00;
+  background: #708090;
   color: #fff;
 }
 html:not(.watch-active-state) .theme-deeporange .button.button-fill:active,
 .theme-deeporange .button.button-fill.active-state {
-  background: #FF3C00;
+  background: #708090;
 }
 .button.button-fill.bg-deeporange,
 .button.button-fill.color-deeporange {
-  background: #FF3C00 !important;
+  background: #708090 !important;
   color: #fff;
 }
 html:not(.watch-active-state) .button.button-fill.bg-deeporange:active,
 html:not(.watch-active-state) .button.button-fill.color-deeporange:active,
 .button.button-fill.bg-deeporange.active-state,
 .button.button-fill.color-deeporange.active-state {
-  background: #FF3C00 !important;
+  background: #708090 !important;
 }
 .progressbar.color-deeporange,
 .progressbar.theme-deeporange,
@@ -5391,7 +5391,7 @@ html:not(.watch-active-state) .button.button-fill.color-deeporange:active,
 .progressbar.theme-deeporange span,
 .theme-deeporange .progressbar span,
 .progressbar.bg-deeporange span {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .progressbar-infinite.color-deeporange,
 .progressbar-infinite.theme-deeporange,
@@ -5407,11 +5407,11 @@ html:not(.watch-active-state) .button.button-fill.color-deeporange:active,
 .progressbar-infinite.theme-deeporange:before,
 .theme-deeporange .progressbar-infinite:before,
 .progressbar-infinite.bg-deeporange:before {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .color-deeporange i.icon,
 i.icon.color-deeporange {
-  color: #FF3C00;
+  color: #708090;
 }
 i.icon-next.color-deeporange,
 i.icon-next.theme-deeporange {
@@ -5435,16 +5435,16 @@ i.icon-bars.theme-deeporange {
 }
 .preloader.color-deeporange svg circle,
 .preloader.preloader-deeporange svg circle {
-  stroke: #FF3C00;
+  stroke: #708090;
 }
 .preloader.color-deeporange .preloader-inner-gap,
 .preloader.preloader-deeporange .preloader-inner-gap,
 .preloader.color-deeporange .preloader-inner-half-circle,
 .preloader.preloader-deeporange .preloader-inner-half-circle {
-  border-color: #FF3C00;
+  border-color: #708090;
 }
 .theme-deeporange a {
-  color: #FF3C00;
+  color: #708090;
 }
 .theme-deeporange .navbar,
 .navbar.theme-deeporange,
@@ -5454,27 +5454,27 @@ i.icon-bars.theme-deeporange {
 .subnavbar.theme-deeporange,
 .theme-deeporange .searchbar,
 .searchbar.theme-deeporange {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange .range-slider input[type="range"]::-webkit-slider-thumb:before,
 .range-slider.theme-deeporange input[type="range"]::-webkit-slider-thumb:before {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange .range-slider input[type="range"]::-webkit-slider-thumb,
 .range-slider.theme-deeporange input[type="range"]::-webkit-slider-thumb {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange .range-slider input[type="range"]::-ms-thumb,
 .range-slider.theme-deeporange input[type="range"]::-ms-thumb {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange .range-slider input[type="range"]::-ms-fill-lower,
 .range-slider.theme-deeporange input[type="range"]::-ms-fill-lower {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange .range-slider input[type="range"]::-moz-range-thumb,
 .range-slider.theme-deeporange input[type="range"]::-moz-range-thumb {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange .label-switch input[type="checkbox"]:checked + .checkbox,
 .label-switch.theme-deeporange input[type="checkbox"]:checked + .checkbox {
@@ -5482,7 +5482,7 @@ i.icon-bars.theme-deeporange {
 }
 .theme-deeporange .label-switch input[type="checkbox"]:checked + .checkbox:after,
 .label-switch.theme-deeporange input[type="checkbox"]:checked + .checkbox:after {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange label.label-checkbox,
 label.label-checkbox.theme-deeporange {
@@ -5504,12 +5504,12 @@ label.label-checkbox.theme-deeporange input[type="radio"]:checked ~ .item-after 
 label.label-checkbox.theme-deeporange input[type="checkbox"]:checked ~ .item-inner i.icon-form-checkbox,
 .theme-deeporange label.label-checkbox input[type="radio"]:checked ~ .item-inner i.icon-form-checkbox,
 label.label-checkbox.theme-deeporange input[type="radio"]:checked ~ .item-inner i.icon-form-checkbox {
-  border-color: #FF3C00;
-  background-color: #FF3C00;
+  border-color: #708090;
+  background-color: #708090;
 }
 .theme-deeporange label.label-radio i.icon-form-radio:after,
 label.label-radio.theme-deeporange i.icon-form-radio:after {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange label.label-radio input[type="checkbox"]:checked + .item-media i.icon-form-radio,
 label.label-radio.theme-deeporange input[type="checkbox"]:checked + .item-media i.icon-form-radio,
@@ -5523,7 +5523,7 @@ label.label-radio.theme-deeporange input[type="radio"]:checked ~ .item-after i.i
 label.label-radio.theme-deeporange input[type="checkbox"]:checked ~ .item-inner i.icon-form-radio,
 .theme-deeporange label.label-radio input[type="radio"]:checked ~ .item-inner i.icon-form-radio,
 label.label-radio.theme-deeporange input[type="radio"]:checked ~ .item-inner i.icon-form-radio {
-  border-color: #FF3C00;
+  border-color: #708090;
 }
 .theme-deeporange label.label-radio input[type="checkbox"]:checked + .item-media i.icon-form-radio:after,
 label.label-radio.theme-deeporange input[type="checkbox"]:checked + .item-media i.icon-form-radio:after,
@@ -5537,41 +5537,41 @@ label.label-radio.theme-deeporange input[type="radio"]:checked ~ .item-after i.i
 label.label-radio.theme-deeporange input[type="checkbox"]:checked ~ .item-inner i.icon-form-radio:after,
 .theme-deeporange label.label-radio input[type="radio"]:checked ~ .item-inner i.icon-form-radio:after,
 label.label-radio.theme-deeporange input[type="radio"]:checked ~ .item-inner i.icon-form-radio:after {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange .focus-state .label,
 .theme-deeporange .focus-state .floating-label {
-  color: #FF3C00;
+  color: #708090;
 }
 .theme-deeporange .item-input-field.focus-state:after,
 .theme-deeporange .input-field.focus-state:after,
 .theme-deeporange .item-input-field.not-empty-state:after,
 .theme-deeporange .input-field.not-empty-state:after {
-  background: #FF3C00;
+  background: #708090;
 }
 .theme-deeporange .picker-calendar-day.picker-calendar-day-today span {
-  color: #FF3C00;
+  color: #708090;
 }
 .theme-deeporange .picker-calendar-day.picker-calendar-day-selected span {
-  background-color: #FF3C00;
+  background-color: #708090;
   color: #fff;
 }
 .theme-deeporange .picker-calendar-day.picker-calendar-day-has-events span:after {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange .picker-header {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange .modal-button {
-  color: #FF3C00;
+  color: #708090;
 }
 .swiper-pagination.color-deeporange .swiper-pagination-bullet-active,
 .theme-deeporange .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .swiper-pagination.color-deeporange .swiper-pagination-progressbar,
 .theme-deeporange .swiper-pagination .swiper-pagination-progressbar {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .swiper-pagination.swiper-pagination-progress.bg-deeporange {
   background-color: rgba(255, 87, 34, 0.25);
@@ -5592,7 +5592,7 @@ label.label-radio.theme-deeporange input[type="radio"]:checked ~ .item-inner i.i
 a.bg-deeporange,
 .list-block .swipeout-actions-left a.bg-deeporange,
 .list-block .swipeout-actions-right a.bg-deeporange {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 html:not(.watch-active-state) .list-block .bg-deeporange .item-link:active,
 html:not(.watch-active-state) .list-block a.bg-deeporange .item-link:active,
@@ -5618,10 +5618,10 @@ html:not(.watch-active-state) .list-block .item-link.list-block .swipeout-action
 .list-block .item-linka.bg-deeporange.active-state,
 .list-block .item-link.list-block .swipeout-actions-left a.bg-deeporange.active-state,
 .list-block .item-link.list-block .swipeout-actions-right a.bg-deeporange.active-state {
-  background: #FF3C00;
+  background: #708090;
 }
 .border-deeporange {
-  border-color: #FF3C00;
+  border-color: #708090;
 }
 .list-block .border-deeporange.item-inner:after,
 .list-block ul.border-deeporange:after,
@@ -5629,7 +5629,7 @@ html:not(.watch-active-state) .list-block .item-link.list-block .swipeout-action
 .list-block .border-deeporange.item-inner:before,
 .list-block ul.border-deeporange:before,
 .border-deeporange:before {
-  background-color: #FF3C00;
+  background-color: #708090;
 }
 .theme-deeporange .floating-button,
 .theme-deeporange .speed-dial-buttons a,
@@ -5640,7 +5640,7 @@ html:not(.watch-active-state) .list-block .item-link.list-block .swipeout-action
 .floating-button.bg-deeporange,
 .speed-dial-buttons a.bg-deeporange {
   color: #fff;
-  background: #FF3C00;
+  background: #708090;
 }
 html:not(.watch-active-state) .theme-deeporange .floating-button:active,
 html:not(.watch-active-state) .theme-deeporange .speed-dial-buttons a:active,
@@ -5658,7 +5658,7 @@ html:not(.watch-active-state) .speed-dial-buttons a.bg-deeporange:active,
 .speed-dial-buttons a.color-deeporange.active-state,
 .floating-button.bg-deeporange.active-state,
 .speed-dial-buttons a.bg-deeporange.active-state {
-  background: #FF3C00;
+  background: #708090;
 }
 .theme-deeporange .floating-button i,
 .theme-deeporange .speed-dial-buttons a i,
@@ -5675,7 +5675,7 @@ html:not(.watch-active-state) .speed-dial-buttons a.bg-deeporange:active,
 }
 .badge.color-deeporange,
 .badge.theme-deeporange {
-  background-color: #FF3C00;
+  background-color: #708090;
   color: #fff;
 }
 .color-brown {

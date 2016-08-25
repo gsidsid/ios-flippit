@@ -302,12 +302,9 @@
                 </div>
             </div>
             <div class="page-content">
-                <div class="views">
-                <div class="view viewA">
-                <div class="pages">
                 <div class="undernav">
                     <p style="left: 3%; text-align:center; font-size: 20px; margin: 10px;  margin-top:18px;">
-                        <input type="text" class ="lockedmargin" id="def" style="border: none;margin-top: -18px;height: 200%;display: inline;font-family:'Avenir' Roboto;font-size: 20px;text-align:center" placeholder="Set New Stack Title" onclick="clear()"/>
+                        <input type="text" class ="lockedmargin" id="def" style="border: none;margin-top: 9px;height: 200%;display: inline;font-family:'Avenir' Roboto;font-size: 20px;text-align:center;margin-bottom:10px;border-bottom:1px solid lightgray; width:84%; margin-left:-5px;padding-bottom:5px;" placeholder="Set New Stack Title" onclick="clear()"/>
                         <script>
                         function clear() {
                             console.log("test");
@@ -323,19 +320,26 @@
                     var table = document.getElementById("mantab");
                     
                     function scan(e) {
-                    	var can = true;
+                        var cell;
                         for (var i = 0; i < table.rows.length; i++) {
-                            j==1;		
-                                    if (e.keyCode == 13) {
-                                    		addrow();
-                                    		break;
-                                    	}
-                                    }
-                                //} );
-                            
+                            cell = document.getElementsByClassName("inp2");
                         }
+
+                        if (e.keyCode == 13 && $(cell).is(':focus')) {
+                            addrow();
+                            refocus();
+                        }
+                    }
                     
-                    
+                    function refocus() {
+                        var q;
+                        var m = 0;
+                        for (var i = 0; i < table.rows.length+1; i++) {
+                            q = document.getElementsByClassName("inp1")[document.getElementsByClassName("inp1").length-2];
+                        }
+                        console.log(q);
+                        q.focus();
+                    }
                     
                  
                     function atVal(cel) {
@@ -369,36 +373,35 @@
                 //}
                 </script>
                     <tr>
-                        <td><input type='text' placeholder="Term" class="inp"/>
+                        <td><input type='text' placeholder="Term" class="inp1"/>
                         <a href="#" data-popover=".popover-help" class="open-popover modal-in"></a>
                         </td>
-                        <td><input type='text' placeholder="Definition" class="inp"/></td>
+                        <td><input type='text' placeholder="Definition" class="inp2"/></td>
                     </tr>
                 </table>
             </div>
                 <br>
-            <p class="buttons-column">
+            <!-- <p class="buttons-column"> -->
                 <!--  padding:10px; height:117% -->
-                <a onclick="addrow()" style="margin-left:45px; margin-bottom:7px;" class="button button-raised color-orange">Add Card +</a>
+
+                <!-- <a onclick="addrow()" style="margin-left:45px; margin-bottom:7px;" class="button button-raised color-orange">Add Card +</a> -->
                 <script>
                 function addrow() {
                     var table = document.getElementById("mantab");
                     var row = table.insertRow();
                     var cell1 = row.insertCell(0);
                     var cell2 = row.insertCell(1);
-                    cell1.setAttribute('class', 'inp');
-                    cell2.setAttribute('class', 'inp');
-                        cell1.innerHTML = "<input type='text' placeholder='Term'/>"
-                        cell2.innerHTML = "<input type='text' placeholder='Definition'/>"
+                        cell1.innerHTML = "<input type='text' class='inp1' placeholder='Term'/>"
+                        cell2.innerHTML = "<input type='text' class='inp2' placeholder='Definition'/>"
                 }
                 </script>
+
+                <p style="color:gray;font-size:13px;margin-left:45px;text-align:center">New card slots will automatically appear as cards are entered.</p>
                 <br><br><br>
-            </p>
+
             </div>
             </div>
-            </div>
-            </div>
-        </div>
+
 
 <!-- AUTOMATIC ENTRY FOLLOWS                                                  -->
         <div id="addauttab" data-page="addauttab" class="page navbar-fixed">
@@ -490,7 +493,7 @@
         <div class="view">
           <div class="page">
             <div class="page-content login-screen-content">
-              <div class="login-screen-title" style="padding-top:20px;">Flippit</div>
+              <div class="login-screen-title" style="padding-top:20px;color:#708090">Flippit</div>
               <form>
                 <div class="list-block">
                   <ul>
