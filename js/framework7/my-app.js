@@ -31,7 +31,7 @@ $$('.nset').on('taphold', function () {
 
 var mainView = myApp.addView('.view-main', {
 });
-console.log("help");
+
 
 $$(document).on('ajaxStart', function (e)
 {
