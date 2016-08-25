@@ -17,8 +17,14 @@
     list-style-type: none;
 }
 
+
 .login-screen-buttons p {
     text-align: center;
+}
+
+.list-block .item-inner {
+    padding-left:20px;
+    margin-right: 16px;
 }
 
 .buttons-row .button {
@@ -84,7 +90,7 @@ div {
     text-align: center;
     width: 78vw;
     height: 5%;
-    margin-top: -7vw;
+    margin-top: -6vw;
     position: relative;
 }
 
