@@ -54,8 +54,148 @@
     <!-- Imports for framework7 UI/nav scripts-->
     <script type="text/javascript" src="js/framework7/framework7.min.js"></script>
     <script type="text/javascript" src="js/framework7/my-app.js"></script>
+
+    <!-- NEW DATABASE: DO NOT MODIFY CODE; TEST ONLY ON PHONEGAP SERVER ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript">
+    document.addEventListener("deviceready",onDeviceReady,false);
+    var database = null;
+    var USER = null;
+    var auth = true;
+    var lastSet;
+    var activeSetName;
+
+    function upCreds() {
+        var creds = $('#logmein').serializeArray();
+        USER = creds["username"];
+    }
+    function onDeviceReady() {
+        database = window.openDatabase("FlippitDB_10","1.0","Notecard Saves",200000);
+        database.transaction(PopulateDatabase,errorDB,successDB);
+    }
+    function PopulateDatabase(tx) {
+        tx.executeSql("Create Table IF NOT EXISTS FlippitDB_10 (ROLLNO INT, AccountName text, SetName text, CardCount INT, WordsMark text, DefsMark text)");
+    }
+    function errorDB(error) {
+        alert("Database Creation Error: " + error);
+    }
+    function successDB() {
+
+    }
+    function SelectData(tx) {
+        tx.executeSql("select * from FlippitDB_10",[],resultSuccess,successLoad);
+    }
+    function getDatabase() {
+        USER = document.getElementById("user").value;
+        database = window.openDatabase("FlippitDB_10","1.0","Notecard Saves",200000);
+        database.transaction(SelectData,errorDB,successDB);
+    }
+    function onchlogin() {
+        var home = document.getElementById('active');
+        var logmein = document.getElementById('logmein');
+        home.innerHTML = nodeToString(logmein);
+    }
+    function successLoad() {
+
+    }
+            //ROLLNO AccountName, SetName, CardCount, Words, Defs
+    function resultSuccess(tx, response) {
+
+        var div = document.getElementById("responseDBdiv");
+        var temp = "<table><tr><th>Name of Set</th></tr><tr><th>Words</th></tr><tr><th>Definitions</th></tr>";
+
+        var homelistdiv = document.getElementById("loadDBLIST");
+        var temp2 = "<ul>";
+        for(var i=0;i<response.rows.length;i++) {
+            if(activeSetName == response.rows.item(i).SetName) {
+                temp += "<tr><td>" + response.rows.item(i).SetName + "</td></tr><tr><td>" + response.rows.item(i).WordsMark + "</td></tr><tr><td>" + response.rows.item(i).DefsMark + "</td></tr>";
+            }
+            var a = response.rows.item(i).AccountName.toString();
+            if(auth && (a === USER.toLowerCase()) ) {
+                temp2 += "<li><a href='#' class='item-link list-button nset' onclick='loadset(this.innerText);'>" + response.rows.item(i).SetName + "</a></li>";
+            }
+            //alert(temp);
+        }
+
+        temp2 += "</ul>";
+        div.innerHTML = temp;
+        homelistdiv.innerHTML = temp2;
+
+
+
+       // "<ul>
+       //             <li>
+       //               <a href="#" class="item-link list-button nset" onclick="loadset(1);">Notecard set 1</a>"
+    }
+
+
+    function resultError(error) {
+        alert("Error: " + error);
+    }
+
+    function pushDB(tx) {
+        tx.executeSql("select * from FlippitDB_10",[],pushSuccess,successLoad);
+    }
+    function getDatabasePUSH() {
+        USER = document.getElementById("user").value;
+        database = window.openDatabase("FlippitDB_10","1.0","Notecard Saves",200000);
+        database.transaction(pushDB,errorDB,successDB);
+    }
+
+    </script>
+
+    <!--                                                                ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+
     <title>Flippit</title>
 </head>
+
+
+<!-- Login view on app init -->
+
+     <div id="logmein" class="login-screen modal-in">
+        <div class="view">
+          <div class="page">
+            <div class="page-content login-screen-content">
+              <div class="login-screen-title" style="padding-top:20px;color:#336699">Flippit</div>
+              <form>
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-input">
+                          <input type="text" name="username" id="user" placeholder="Username">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-input">
+                          <input type="password" name="password" placeholder="Password">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                  <br>&nbsp;
+                  <div class="login-screen-buttons">
+                      <ul>
+                          <li>
+                            <a href="#" class="button button-big button-fill color-orange item-link list-button close-login-screen" onclick="upCreds();getDatabase();">Sign In</a>
+                          </li>
+                          <li>
+                              <p>Don't have an account?
+                            <a href="#" class="close-login-screen">Register</a></p>
+                          </li>
+                      </ul>
+                  </div>
+                  &nbsp;
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
 <body class="theme-orange">
     <div class="statusbar-overlay" style="background:#FF3C00;-webkit-transition:400ms;transition:400ms;"></div>
@@ -88,6 +228,7 @@
                 <script>
                     //switch active div to hometab div
                     function onch() {
+                        getDatabase();
                         var home = document.getElementById('active');
                         var hometab = document.getElementById('hometab');
                         home.innerHTML = nodeToString(hometab);
@@ -143,20 +284,24 @@
             </div>
         </div>
         <!-- <div class="page-content"> -->
+            <script>
 
+            function loadset(gonum) {
+                activeSetName = gonum;
+                var home = document.getElementById('active');
+                var anyset = document.getElementById('anyset');
+                home.innerHTML = nodeToString(anyset);
+            }
+            </script>
             <div class="list-block undernav">
+                <div id="loadDBLIST">
                   <ul>
                     <li>
-                      <a href="#" class="item-link list-button nset">Notecard set 1</a>
-                    </li>
-                    <li>
-                      <a href="#" class="item-link list-button nset">Notecard set 2</a>
-                    </li>
-                    <li>
-                      <a href="#" class="item-link list-button nset">Notecard set 3</a>
+                      <a href="#" class="item-link list-button nset" onclick="loadset();">Loading sets...</a>
                     </li>
                   </ul>
             </div>
+            </div>
         </div>
         </div>
             </div>
@@ -167,9 +312,7 @@
 
 
 
-<!-- ALL TAB VIEWS FOLLOW -->
-<!-- HOME TAB FOLLOWS                                      -->
-    <div id="hometab" data-page="hometab" class="page navbar-fixed">
+    <div id="anyset" data-page="activeloading" class="page navbar-fixed">
 
         <div class="navbar">
             <div class="navbar-inner">
@@ -178,21 +321,17 @@
         </div>
         <div class="page-content">
 
-            <div class="list-block undernav">
-                  <ul>
-                    <li>
-                      <a href="#" class="item-link list-button nset">Notecard set 1</a>
-                    </li>
-                    <li>
-                      <a href="#" class="item-link list-button nset">Notecard set 2</a>
-                    </li>
-                    <li>
-                      <a href="#" class="item-link list-button nset">Notecard set 3</a>
-                    </li>
-                  </ul>
-            </div>
+            <div id="responseDBdiv"></div>
+            <script>
+
+            </script>
+
         </div>
     </div>
+
+<!-- ALL TAB VIEWS FOLLOW -->
+
+
 <!-- SEARCH TAB FOLLOWS                                      -->
     <div id="searchtab" data-page="searchtab" class="page navbar-fixed">
         <div class="navbar">
@@ -295,7 +434,7 @@
                     </div>
                     <div class="center">Manual Entry</div>
                     <div class="right">
-                        <a class="link" onclick="onca(); showTools();">
+                        <a class="link" onclick="getWords(); getTitle(); getDatabasePUSH(); onca(); showTools();">
                             Done
                         </a>
                     </div>
@@ -369,14 +508,50 @@
 
                         }
                     }
+                    //ROLLNO AccountName, SetName, CardCount, Words, Defs
+                    var words;
+                    var defs;
+                    var title;
+
+                    function getWords() {
+                        for (var i = 0, row; row = table.rows[i]; i++) {
+                           //iterate through rows
+                           //rows would be accessed using the "row" variable assigned in the for loop
+                           for (var j = 0, col; col = row.cells[j]; j++) {
+                             if(col == 0) {
+                                 words += col.innerHTML + ",";
+                                 words += col.val() + ",";
+                             } else {
+                                 defs += col.value + ",";
+                             }
+                           }
+                        }
+                    }
+
+                    function getTitle() {
+                        title = document.getElementById("def").value;
+                    }
+
+                    function pushDB(tx) {
+                        //alert("Insert into FlippitDB_10 values(1,'" + USER + "','" + a + "',1,'" + words + "','" + defs + "' )");
+                        tx.executeSql("Insert into FlippitDB_10 values(1,'" + USER + "','" + title + "',1,'" + words + "','" + defs + "' )");
+                    }
+                    function getDatabasePUSH() {
+                        database = window.openDatabase("FlippitDB_10","1.0","Notecard Saves",200000);
+                        database.transaction(pushDB,errorDB,successDB);
+                    }
+                    function pushSuccess() {
+
+                    }
+
 
                 //}
                 </script>
                     <tr>
-                        <td><input type='text' placeholder="Term" class="inp1"/>
+                        <td><input type='text' placeholder="Term" class="inp1" value=""/>
                         <a href="#" data-popover=".popover-help" class="open-popover modal-in"></a>
                         </td>
-                        <td><input type='text' placeholder="Definition" class="inp2"/></td>
+                        <td><input type='text' placeholder="Definition" class="inp2" value=""/></td>
                     </tr>
                 </table>
             </div>
@@ -391,8 +566,8 @@
                     var row = table.insertRow();
                     var cell1 = row.insertCell(0);
                     var cell2 = row.insertCell(1);
-                        cell1.innerHTML = "<input type='text' class='inp1' placeholder='Term'/>"
-                        cell2.innerHTML = "<input type='text' class='inp2' placeholder='Definition'/>"
+                        cell1.innerHTML = "<input type='text' class='inp1' placeholder='Term' value=''/>"
+                        cell2.innerHTML = "<input type='text' class='inp2' placeholder='Definition' value=''/>"
                 }
                 </script>
 
@@ -486,52 +661,27 @@
         </div>
         </div>
 
+<!-- HOME TAB FOLLOWS                                      -->
+    <div id="hometab" data-page="hometab" class="page navbar-fixed">
 
-<!-- Login view on app init -->
-
-     <div class="login-screen modal-in">
-        <div class="view">
-          <div class="page">
-            <div class="page-content login-screen-content">
-              <div class="login-screen-title" style="padding-top:20px;color:#336699">Flippit</div>
-              <form>
-                <div class="list-block">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center">Notecard Sets</div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="list-block undernav">
+                <div id="loadDBLIST">
                   <ul>
-                    <li class="item-content">
-                      <div class="item-inner">
-                        <div class="item-input">
-                          <input type="text" name="username" placeholder="Username">
-                        </div>
-                      </div>
-                    </li>
-                    <li class="item-content">
-                      <div class="item-inner">
-                        <div class="item-input">
-                          <input type="password" name="password" placeholder="Password">
-                        </div>
-                      </div>
+                    <li>
+                      <a href="#" class="item-link list-button nset">Loading sets...</a>
                     </li>
                   </ul>
-                </div>
-
-                  <br>&nbsp;
-                  <div class="login-screen-buttons">
-                      <ul>
-                          <li>
-                            <a href="#" class="button button-big button-fill color-orange item-link list-button close-login-screen">Sign In</a>
-                          </li>
-                          <li>
-                              <p>Don't have an account?
-                            <a href="#" class="close-login-screen">Register</a></p>
-                          </li>
-                      </ul>
-                  </div>
-                  &nbsp;
-              </form>
+                <div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+
 
 
     <script type="text/javascript">
