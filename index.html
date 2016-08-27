@@ -217,7 +217,7 @@
           <!-- Toolbar has additional "toolbar-bottom" class -->
           <div class="toolbar toolbar-bottom">
               <script>
-                  //nifty function that allows div swapping for shorter loading times with js
+                  //nifty function that helps with inline DOM caching (kind of)
                   function nodeToString ( node ) {
                        var tmpNode = document.createElement( "div" );
                        tmpNode.appendChild( node.cloneNode( true ) );
@@ -305,7 +305,7 @@
                 <div id="loadDBLIST">
                   <ul>
                     <li>
-                      <a href="#" class="item-link list-button nset" onclick="loadset();">Loading sets...</a>
+                      <a href="#" class="item-link list-button nset" onclick="loadset();"></a>
                     </li>
                   </ul>
             </div>
@@ -696,7 +696,7 @@
                 <div id="loadDBLIST">
                   <ul>
                     <li>
-                      <a href="#" class="item-link list-button nset">Loading sets...</a>
+                      <a href="#" class="item-link list-button nset"></a>
                     </li>
                   </ul>
                 <div>
