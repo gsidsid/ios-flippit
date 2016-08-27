@@ -71,24 +71,24 @@
         USER = creds["username"];
     }
     function onDeviceReady() {
-        database = window.openDatabase("FlippitDB_10","1.0","Notecard Saves",200000);
+        database = window.openDatabase("FlippitDB_13","1.0","Notecard Saves",20000000);
         database.transaction(PopulateDatabase,errorDB,successDB);
     }
     function PopulateDatabase(tx) {
-        tx.executeSql("Create Table IF NOT EXISTS FlippitDB_10 (ROLLNO INT, AccountName text, SetName text, CardCount INT, WordsMark text, DefsMark text)");
+        tx.executeSql("Create Table IF NOT EXISTS FlippitDB_13 (ROLLNO INT, AccountName text, SetName text, CardCount INT, WordsMark text, DefsMark text)");
     }
     function errorDB(error) {
-        alert("Database Creation Error: " + error);
+        alert("Database Creation Error: " + error.message);
     }
     function successDB() {
 
     }
     function SelectData(tx) {
-        tx.executeSql("select * from FlippitDB_10",[],resultSuccess,successLoad);
+        tx.executeSql("select * from FlippitDB_13",[],resultSuccess,successLoad);
     }
     function getDatabase() {
         USER = document.getElementById("user").value;
-        database = window.openDatabase("FlippitDB_10","1.0","Notecard Saves",200000);
+        database = window.openDatabase("FlippitDB_13","1.0","Notecard Saves",20000000);
         database.transaction(SelectData,errorDB,successDB);
     }
     function onchlogin() {
@@ -107,22 +107,34 @@
 
         var homelistdiv = document.getElementById("loadDBLIST");
         var temp2 = "<ul>";
+
+
+        for(var i=0;i<response.rows.length;i++) {
+            var a = response.rows.item(i).AccountName.toString();
+
+
+            if(auth && (a.toLowerCase() == USER.toLowerCase())) {
+                temp2 += "<li><a href='#' class='item-link list-button nset' onclick='loadset(this.innerText);'>" + response.rows.item(i).SetName + "</a></li>";
+
+            }
+            //alert(temp);
+        }
+
         for(var i=0;i<response.rows.length;i++) {
             if(activeSetName == response.rows.item(i).SetName) {
                 temp += "<tr><td>" + response.rows.item(i).SetName + "</td></tr><tr><td>" + response.rows.item(i).WordsMark + "</td></tr><tr><td>" + response.rows.item(i).DefsMark + "</td></tr>";
-            }
-            var a = response.rows.item(i).AccountName.toString();
-            if(auth && (a === USER.toLowerCase()) ) {
-                temp2 += "<li><a href='#' class='item-link list-button nset' onclick='loadset(this.innerText);'>" + response.rows.item(i).SetName + "</a></li>";
             }
             //alert(temp);
         }
 
         temp2 += "</ul>";
+
+
+
         div.innerHTML = temp;
         homelistdiv.innerHTML = temp2;
 
-
+        onchvis();
 
        // "<ul>
        //             <li>
@@ -132,15 +144,6 @@
 
     function resultError(error) {
         alert("Error: " + error);
-    }
-
-    function pushDB(tx) {
-        tx.executeSql("select * from FlippitDB_10",[],pushSuccess,successLoad);
-    }
-    function getDatabasePUSH() {
-        USER = document.getElementById("user").value;
-        database = window.openDatabase("FlippitDB_10","1.0","Notecard Saves",200000);
-        database.transaction(pushDB,errorDB,successDB);
     }
 
     </script>
@@ -198,7 +201,7 @@
       </div>
 
 <body class="theme-orange">
-    <div class="statusbar-overlay" style="background:#FF3C00;-webkit-transition:400ms;transition:400ms;"></div>
+    <div class="statusbar-overlay" style="background:#336699;-webkit-transition:400ms;transition:400ms;"></div>
     <!-- APP CONTENT BELOW THIS LINE: Preview in device resolution ; FLAT_OS CONFIGURATION-->
 
     <div class="page-content">
@@ -229,6 +232,11 @@
                     //switch active div to hometab div
                     function onch() {
                         getDatabase();
+                        var home = document.getElementById('active');
+                        var hometab = document.getElementById('hometab');
+                        home.innerHTML = nodeToString(hometab);
+                    }
+                    function onchvis() {
                         var home = document.getElementById('active');
                         var hometab = document.getElementById('hometab');
                         home.innerHTML = nodeToString(hometab);
@@ -533,11 +541,11 @@
                     }
 
                     function pushDB(tx) {
-                        //alert("Insert into FlippitDB_10 values(1,'" + USER + "','" + a + "',1,'" + words + "','" + defs + "' )");
-                        tx.executeSql("Insert into FlippitDB_10 values(1,'" + USER + "','" + title + "',1,'" + words + "','" + defs + "' )");
+                        //alert("Insert into FlippitDB_11 values(1,'" + USER + "','" + a + "',1,'" + words + "','" + defs + "' )");
+                        tx.executeSql("Insert into FlippitDB_13 values(1,'" + USER + "','" + title + "',1,'" + words + "','" + defs + "' )");
                     }
                     function getDatabasePUSH() {
-                        database = window.openDatabase("FlippitDB_10","1.0","Notecard Saves",200000);
+                        database = window.openDatabase("FlippitDB_13","1.0","Notecard Saves",20000000);
                         database.transaction(pushDB,errorDB,successDB);
                     }
                     function pushSuccess() {

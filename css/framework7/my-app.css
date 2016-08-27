@@ -7,7 +7,7 @@
 .login-screen-title {
     padding-top: 50%;
     background: #FFFFFF;
-    color:#FF3C00;
+    color:#336699;
     font-weight: 100;
     font-size: 80px;
 }
@@ -95,7 +95,7 @@ div {
 }
 
 .statusbar-overlay {
-    background: #FF3C00;
+    background: #336699;
 }
 
 
@@ -103,7 +103,7 @@ div {
     /* IPHONE 5 WIDESCREEN */
 .login-screen-title {
     background: #FFFFFF;
-    color:#FF3C00;
+    color:#336699;
     font-weight: 100;
     font-size: 55px;
     margin-bottom: -26px;
@@ -168,7 +168,7 @@ p {
     padding-top: 50%;
     padding-bottom: 2vh;
     background: #FFFFFF;
-    color:#FF3C00;
+    color:#336699;
     font-weight: 100;
     font-size: 80px;
 }
