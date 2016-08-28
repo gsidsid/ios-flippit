@@ -34,6 +34,8 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        Keyboard.shrinkView(true);
+        Keyboard.disableScroll(true);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

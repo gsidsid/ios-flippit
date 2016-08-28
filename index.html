@@ -21,6 +21,7 @@
 -->
 <html>
 <!-- THE ROAD TO HELL IS PAVED WITH GOOD INTENTIONS -->
+
 <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
@@ -46,7 +47,7 @@
     <!-- Framework7 Library CSS Proper, color related styles, iOS Theme -->
     <link rel="stylesheet" href="css/framework7/framework7.material.min.css">
     <link rel="stylesheet" href="css/framework7/framework7.material.colors.css">
-    <link rel="stylesheet" href="css/framework7/my-app.css"/>
+    <link rel="stylesheet" href="css/framework7/my-app.css" />
 
     <!-- <script type="text/javascript" src="cordova.js"></script> -->
     <script type="text/javascript" src="js/index.js"></script>
@@ -59,95 +60,99 @@
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript">
-    document.addEventListener("deviceready",onDeviceReady,false);
-    var database = null;
-    var USER = null;
-    var auth = true;
-    var lastSet;
-    var activeSetName;
+        document.addEventListener("deviceready", onDeviceReady, false);
+        var database = null;
+        var USER = null;
+        var auth = true;
+        var lastSet;
+        var activeSetName;
 
-    function upCreds() {
-        var creds = $('#logmein').serializeArray();
-        USER = creds["username"];
-    }
-    function onDeviceReady() {
-        database = window.openDatabase("FlippitDB_13","1.0","Notecard Saves",20000000);
-        database.transaction(PopulateDatabase,errorDB,successDB);
-    }
-    function PopulateDatabase(tx) {
-        tx.executeSql("Create Table IF NOT EXISTS FlippitDB_13 (ROLLNO INT, AccountName text, SetName text, CardCount INT, WordsMark text, DefsMark text)");
-    }
-    function errorDB(error) {
-        alert("Database Creation Error: " + error.message);
-    }
-    function successDB() {
-
-    }
-    function SelectData(tx) {
-        tx.executeSql("select * from FlippitDB_13",[],resultSuccess,successLoad);
-    }
-    function getDatabase() {
-        USER = document.getElementById("user").value;
-        database = window.openDatabase("FlippitDB_13","1.0","Notecard Saves",20000000);
-        database.transaction(SelectData,errorDB,successDB);
-    }
-    function onchlogin() {
-        var home = document.getElementById('active');
-        var logmein = document.getElementById('logmein');
-        home.innerHTML = nodeToString(logmein);
-    }
-    function successLoad() {
-
-    }
-            //ROLLNO AccountName, SetName, CardCount, Words, Defs
-    var globalresponse;
-    function resultSuccess(tx, response) {
-
-        var div = document.getElementById("responseDBdiv");
-        var temp = "<table><tr><th>Name of Set</th></tr><tr><th>Words</th></tr><tr><th>Definitions</th></tr>";
-
-        var homelistdiv = document.getElementById("loadDBLIST");
-        var temp2 = "<ul>";
-
-
-        for(var i=0;i<response.rows.length;i++) {
-            var a = response.rows.item(i).AccountName.toString();
-
-            globalresponse = response;
-
-            if(auth && (a.toLowerCase() == USER.toLowerCase())) {
-                temp2 += "<li><a href='#' class='item-link list-button nset' onclick='loadset(this.innerText);'>" + response.rows.item(i).SetName + "</a></li>";
-
-            }
-            //alert(temp);
+        function upCreds() {
+            var creds = $('#logmein').serializeArray();
+            USER = creds["username"];
         }
 
-        for(var i=0;i<response.rows.length;i++) {
-            if(activeSetName == response.rows.item(i).SetName) {
-                temp += "<tr><td>" + response.rows.item(i).SetName + "</td></tr><tr><td>" + response.rows.item(i).WordsMark + "</td></tr><tr><td>" + response.rows.item(i).DefsMark + "</td></tr>";
-            }
-            //alert(temp);
+        function onDeviceReady() {
+            database = window.openDatabase("FlippitDB_13", "1.0", "Notecard Saves", 20000000);
+            database.transaction(PopulateDatabase, errorDB, successDB);
         }
 
-        temp2 += "</ul>";
+        function PopulateDatabase(tx) {
+            tx.executeSql("Create Table IF NOT EXISTS FlippitDB_13 (ROLLNO INT, AccountName text, SetName text, CardCount INT, WordsMark text, DefsMark text)");
+        }
 
+        function errorDB(error) {
+            alert("Database Creation Error: " + error.message);
+        }
 
+        function successDB() {
 
-        div.innerHTML = temp;
-        homelistdiv.innerHTML = temp2;
+        }
 
-        onchvis();
+        function SelectData(tx) {
+            tx.executeSql("select * from FlippitDB_13", [], resultSuccess, successLoad);
+        }
 
-       // "<ul>
-       //             <li>
-       //               <a href="#" class="item-link list-button nset" onclick="loadset(1);">Notecard set 1</a>"
-    }
+        function getDatabase() {
+            USER = document.getElementById("user").value;
+            database = window.openDatabase("FlippitDB_13", "1.0", "Notecard Saves", 20000000);
+            database.transaction(SelectData, errorDB, successDB);
+        }
 
+        function onchlogin() {
+            var home = document.getElementById('active');
+            var logmein = document.getElementById('logmein');
+            home.innerHTML = nodeToString(logmein);
+        }
 
-    function resultError(error) {
-        alert("Error: " + error);
-    }
+        function successLoad() {
 
+        }
+        //ROLLNO AccountName, SetName, CardCount, Words, Defs
+        var globalresponse;
+
+        function resultSuccess(tx, response) {
+
+            var div = document.getElementById("responseDBdiv");
+            var temp = "<table><tr><th>Name of Set</th></tr><tr><th>Words</th></tr><tr><th>Definitions</th></tr>";
+
+            var homelistdiv = document.getElementById("loadDBLIST");
+            var temp2 = "<ul>";
+
+            for (var i = 0; i < response.rows.length; i++) {
+                var a = response.rows.item(i).AccountName.toString();
+
+                globalresponse = response;
+
+                if (auth && (a.toLowerCase() == USER.toLowerCase())) {
+                    temp2 += "<li><a href='#' class='item-link list-button nset' onclick='loadset(this.innerText);'>" + response.rows.item(i).SetName + "</a></li>";
+
+                }
+                //alert(temp);
+            }
+
+            for (var i = 0; i < response.rows.length; i++) {
+                if (activeSetName == response.rows.item(i).SetName) {
+                    temp += "<tr><td>" + response.rows.item(i).SetName + "</td></tr><tr><td>" + response.rows.item(i).WordsMark + "</td></tr><tr><td>" + response.rows.item(i).DefsMark + "</td></tr>";
+                }
+                //alert(temp);
+            }
+
+            temp2 += "</ul><br><br><br><br><br>";
+
+            div.innerHTML = temp;
+            homelistdiv.innerHTML = temp2;
+
+            onchvis();
+
+            // "<ul>
+            //             <li>
+            //               <a href="#" class="item-link list-button nset" onclick="loadset(1);">Notecard set 1</a>"
+        }
+
+        function resultError(error) {
+            alert("Error: " + error);
+        }
     </script>
 
     <!--                                                                ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
@@ -155,52 +160,51 @@
     <title>Flippit</title>
 </head>
 
-
 <!-- Login view on app init -->
 
-     <div id="logmein" class="login-screen modal-in">
-        <div class="view">
-          <div class="page">
+<div id="logmein" class="login-screen modal-in">
+    <div class="view">
+        <div class="page">
             <div class="page-content login-screen-content">
-              <div class="login-screen-title" style="padding-top:20px;color:#336699">Flippit</div>
-              <form>
-                <div class="list-block">
-                  <ul>
-                    <li class="item-content">
-                      <div class="item-inner">
-                        <div class="item-input">
-                          <input type="text" name="username" id="user" placeholder="Username">
-                        </div>
-                      </div>
-                    </li>
-                    <li class="item-content">
-                      <div class="item-inner">
-                        <div class="item-input">
-                          <input type="password" name="password" placeholder="Password">
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                <div class="login-screen-title" style="padding-top:20px;color:#336699">Flippit</div>
+                <form>
+                    <div class="list-block">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="text" name="username" id="user" placeholder="Username">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="password" name="password" placeholder="Password">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
 
-                  <br>&nbsp;
-                  <div class="login-screen-buttons">
-                      <ul>
-                          <li>
-                            <a href="#" class="button button-big button-fill color-orange item-link list-button close-login-screen" onclick="upCreds();getDatabase();">Sign In</a>
-                          </li>
-                          <li>
-                              <p>Don't have an account?
-                            <a href="#" class="close-login-screen">Register</a></p>
-                          </li>
-                      </ul>
-                  </div>
-                  &nbsp;
-              </form>
+                    <br>&nbsp;
+                    <div class="login-screen-buttons">
+                        <ul>
+                            <li>
+                                <a href="#" class="button button-big button-fill color-orange item-link list-button close-login-screen" onclick="upCreds();getDatabase();">Sign In</a>
+                            </li>
+                            <li>
+                                <p>Don't have an account?
+                                    <a href="#" class="close-login-screen">Register</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                    &nbsp;
+                </form>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
 
 <body class="theme-orange">
     <div class="statusbar-overlay" style="background:#336699;-webkit-transition:400ms;transition:400ms;"></div>
@@ -208,145 +212,140 @@
 
     <div class="page-content">
         <div class="views">
-      <!-- Your main view, should have "view-main" class -->
-      <div class="view view-main">
-        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
-        <div class="pages navbar-fixed toolbar-fixed">
-          <!-- Page, "data-page" contains page name -->
-          <div data-page="index" class="page">
+            <!-- Your main view, should have "view-main" class -->
+            <div class="view view-main">
+                <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+                <div class="pages navbar-fixed toolbar-fixed">
+                    <!-- Page, "data-page" contains page name -->
+                    <div data-page="index" class="page">
 
+                        <!-- Toolbar has additional "toolbar-bottom" class -->
+                        <div class="toolbar toolbar-bottom">
+                            <script>
+                                //nifty function that helps with inline DOM caching (kind of)
+                                function nodeToString(node) {
+                                    var tmpNode = document.createElement("div");
+                                    tmpNode.appendChild(node.cloneNode(true));
+                                    var str = tmpNode.innerHTML;
+                                    tmpNode = node = null; // prevent memory leaks in IE
+                                    return str;
+                                }
+                            </script>
+                            <div class="toolbar-inner">
+                                <a href="#" onclick="onch()" class="link">Home</a>
+                                <script>
+                                    //switch active div to hometab div
+                                    function onch() {
+                                        getDatabase();
+                                        var home = document.getElementById('active');
+                                        var hometab = document.getElementById('hometab');
+                                        home.innerHTML = nodeToString(hometab);
+                                    }
 
-          <!-- Toolbar has additional "toolbar-bottom" class -->
-          <div class="toolbar toolbar-bottom">
-              <script>
-                  //nifty function that helps with inline DOM caching (kind of)
-                  function nodeToString ( node ) {
-                       var tmpNode = document.createElement( "div" );
-                       tmpNode.appendChild( node.cloneNode( true ) );
-                       var str = tmpNode.innerHTML;
-                       tmpNode = node = null; // prevent memory leaks in IE
-                       return str;
-                  }
-              </script>
-            <div class="toolbar-inner">
-                <a href="#" onclick="onch()" class="link">Home</a>
-                <script>
-                    //switch active div to hometab div
-                    function onch() {
-                        getDatabase();
-                        var home = document.getElementById('active');
-                        var hometab = document.getElementById('hometab');
-                        home.innerHTML = nodeToString(hometab);
-                    }
-                    function onchvis() {
-                        var home = document.getElementById('active');
-                        var hometab = document.getElementById('hometab');
-                        home.innerHTML = nodeToString(hometab);
-                    }
-                </script>
-                <a href="#" onclick="oncs()" class="link" >Search</a>
-                <script>
-                    //switch active div to searchtab div
-                    function oncs() {
-                        var home = document.getElementById('active');
-                        var search = document.getElementById('searchtab');
-                        home.innerHTML = nodeToString(search);
-                    }
-                </script>
-                <a href="#" onclick="onca()" class="link big">+</a>
-                <script>
-                    //switch active div to addtab div
-                    function onca() {
-                        var home = document.getElementById('active');
-                        var add = document.getElementById('addtab');
-                        home.innerHTML = nodeToString(add);
-                    }
-                </script>
-                <a href="#" onclick="oncst()" class="link">Stats</a>
-                <script>
-                    //switch active div to stats div
-                    function oncst() {
-                        var home = document.getElementById('active');
-                        var stats = document.getElementById('statstab');
-                        home.innerHTML = nodeToString(stats);
-                    }
-                </script>
-                <a href="#" onclick="oncset()" class="link">Settings</a>
-                <script>
-                    //switch active div to settingstab div
-                    function oncset() {
-                        var home = document.getElementById('active');
-                        var set = document.getElementById('settingstab');
-                        home.innerHTML = nodeToString(set);
-                    }
-                </script>
-          </div>
-          </div>
+                                    function onchvis() {
+                                        var home = document.getElementById('active');
+                                        var hometab = document.getElementById('hometab');
+                                        home.innerHTML = nodeToString(hometab);
+                                    }
+                                </script>
+                                <a href="#" onclick="oncs()" class="link">Search</a>
+                                <script>
+                                    //switch active div to searchtab div
+                                    function oncs() {
+                                        var home = document.getElementById('active');
+                                        var search = document.getElementById('searchtab');
+                                        home.innerHTML = nodeToString(search);
+                                    }
+                                </script>
+                                <a href="#" onclick="onca()" class="link big">+</a>
+                                <script>
+                                    //switch active div to addtab div
+                                    function onca() {
+                                        var home = document.getElementById('active');
+                                        var add = document.getElementById('addtab');
+                                        home.innerHTML = nodeToString(add);
+                                    }
+                                </script>
+                                <a href="#" onclick="oncst()" class="link">Stats</a>
+                                <script>
+                                    //switch active div to stats div
+                                    function oncst() {
+                                        var home = document.getElementById('active');
+                                        var stats = document.getElementById('statstab');
+                                        home.innerHTML = nodeToString(stats);
+                                    }
+                                </script>
+                                <a href="#" onclick="oncset()" class="link">Settings</a>
+                                <script>
+                                    //switch active div to settingstab div
+                                    function oncset() {
+                                        var home = document.getElementById('active');
+                                        var set = document.getElementById('settingstab');
+                                        home.innerHTML = nodeToString(set);
+                                    }
+                                </script>
+                            </div>
+                        </div>
 
-            <!-- Scrollable page content -->
-            <!-- <div class="page-content" id="container"> -->
-                <div id="active">
-                <!-- deftab is default tab -->
-                    <div id="hometab" class="page navbar-fixed">
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="center">Notecard Sets</div>
+                        <!-- Scrollable page content -->
+                        <!-- <div class="page-content" id="container"> -->
+                        <div id="active">
+                            <!-- deftab is default tab -->
+                            <div id="hometab" class="page navbar-fixed">
+                                <div class="navbar">
+                                    <div class="navbar-inner">
+                                        <div class="center">Notecard Sets</div>
+                                    </div>
+                                </div>
+                                <!-- <div class="page-content"> -->
+                                <script>
+                                    function loadset(gonum) {
+                                        activeSetName = gonum;
+
+                                        var responseDiv = document.getElementById('responseDBdiv');
+                                        var aad = getData();
+                                        responseDiv.innerHTML = aad;
+                                        //responseDiv = nodeToString(div);
+
+                                        //alert(document.getElementById('responseDBdiv').innerHTML);
+
+                                        var homee = document.getElementById('active');
+                                        var anysetd = document.getElementById("anyset")
+                                        homee.innerHTML = nodeToString(anysetd);
+                                    }
+
+                                    function getData() {
+                                        var mtemp = "<table style='margin-top: 80px;font-size: 90%;'>";
+                                        mtemp += "<tr><th>Set_Name</th><th>Words_Data</th><th>Defs_Data</th></tr>";
+                                        for (var i = 0; i < globalresponse.rows.length; i++) {
+                                            if (activeSetName == globalresponse.rows.item(i).SetName) {
+                                                mtemp += "<tr><td>" + globalresponse.rows.item(i).SetName + "</td><td>" + globalresponse.rows.item(i).WordsMark + "</td><td>" + globalresponse.rows.item(i).DefsMark + "</td></tr>";
+                                            }
+                                        }
+                                        mtemp += "</table>";
+                                        return mtemp;
+                                    }
+                                </script>
+                                <div class="list-block undernav">
+                                    <div id="loadDBLIST">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="item-link list-button nset" onclick="loadset();"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- <div class="page-content"> -->
-            <script>
-            function loadset(gonum) {
-                activeSetName = gonum;
+    </div>
 
-                var responseDiv = document.getElementById('responseDBdiv');
-                var aad = getData();
-                responseDiv.innerHTML = aad;
-                //responseDiv = nodeToString(div);
+    <!-- ALL TAB VIEWS FOLLOW -->
 
-                //alert(document.getElementById('responseDBdiv').innerHTML);
-
-                var homee = document.getElementById('active');
-                var anysetd = document.getElementById("anyset")
-                homee.innerHTML = nodeToString(anysetd);
-            }
-
-            function getData() {
-                var mtemp = "<table style='margin-top: 80px;font-size: 90%;'>";
-                mtemp += "<tr><th>Set_Name</th><th>Words_Data</th><th>Defs_Data</th></tr>";
-                for(var i=0;i<globalresponse.rows.length;i++) {
-                    if(activeSetName == globalresponse.rows.item(i).SetName) {
-                        mtemp += "<tr><td>" + globalresponse.rows.item(i).SetName + "</td><td>" + globalresponse.rows.item(i).WordsMark + "</td><td>" + globalresponse.rows.item(i).DefsMark + "</td></tr>";
-                    }
-                }
-                mtemp+="</table>";
-                return mtemp;
-            }
-
-            </script>
-            <div class="list-block undernav">
-                <div id="loadDBLIST">
-                  <ul>
-                    <li>
-                      <a href="#" class="item-link list-button nset" onclick="loadset();"></a>
-                    </li>
-                  </ul>
-            </div>
-            </div>
-        </div>
-        </div>
-            </div>
-            </div>
-          </div>
-        </div>
-          </div>
-
-
-
-
-<!-- ALL TAB VIEWS FOLLOW -->
-
-
-<!-- SEARCH TAB FOLLOWS                                      -->
+    <!-- SEARCH TAB FOLLOWS                                      -->
     <div id="searchtab" data-page="searchtab" class="page navbar-fixed">
         <div class="navbar">
             <div class="navbar-inner">
@@ -354,62 +353,63 @@
             </div>
         </div>
         <div class="page-content" style="padding-top:56px;">
-        <form class="searchbar">
-            <div class="searchbar-input">
-                <input type="search" placeholder="Search">
-                <a href="#" class="searchbar-clear"></a>
-            </div>
-            <a href="#" class="searchbar-cancel">Cancel</a>
-        </form>
-        <div class="searchbar-overlay"></div>
+            <form class="searchbar">
+                <div class="searchbar-input">
+                    <input type="search" placeholder="Search">
+                    <a href="#" class="searchbar-clear"></a>
+                </div>
+                <a href="#" class="searchbar-cancel">Cancel</a>
+            </form>
+            <div class="searchbar-overlay"></div>
 
-        <div class="list-block">
-                  <ul>
+            <div class="list-block">
+                <ul>
                     <li>
-                      <a href="#" class="item-link list-button nset">Notecard search 1</a>
+                        <a href="#" class="item-link list-button nset">Notecard search 1</a>
                     </li>
                     <li>
-                      <a href="#" class="item-link list-button nset">Notecard search 2</a>
+                        <a href="#" class="item-link list-button nset">Notecard search 2</a>
                     </li>
                     <li>
-                      <a href="#" class="item-link list-button nset">Notecard search 3</a>
+                        <a href="#" class="item-link list-button nset">Notecard search 3</a>
                     </li>
-                  </ul>
+                </ul>
             </div>
         </div>
-        </div>
-<!-- ADD TAB FOLLOWS                                      -->
-        <div id="addtab" data-page="addtab" class="page navbar-fixed">
+    </div>
+    <!-- ADD TAB FOLLOWS                                      -->
+    <div id="addtab" data-page="addtab" class="page navbar-fixed">
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center">Add cards</div>
             </div>
         </div>
-            <div class="page-content">
-        <div class="list-block undernav">
-                  <ul>
-                    <li >
-                      <a onclick="oncma()" class="item-link list-button addcard" style="font-size:24px; padding-top:15px;">Automatic Entry<p><div class="miniText" style="margin-top:-39px;font-size:10px;margin-bottom:-25px">Take a picture of a list to automagically generate flashcards!</div></p></a>
+        <div class="page-content">
+            <div class="list-block undernav">
+                <ul>
+                    <li>
+                        <a onclick="oncma()" class="item-link list-button addcard" style="font-size:24px; padding-top:15px;">Automatic Entry<p><div class="miniText" style="margin-top:-39px;font-size:10px;margin-bottom:-25px">Take a picture of a list to automagically generate flashcards!</div></p></a>
                         <script>
-                        //switch active div to hometab div
+                            //switch active div to hometab div
                             function oncma() {
                                 var home = document.getElementById('active');
                                 var auttab = document.getElementById('addauttab');
                                 home.innerHTML = nodeToString(auttab);
                             }
-                        
-                        	function hideTools() {
-                        		$(".toolbar").hide();
-                        	}
-                        	function showTools() {
-                        		$(".toolbar").show();
-                        	}
+
+                            function hideTools() {
+                                $(".toolbar").hide();
+                            }
+
+                            function showTools() {
+                                $(".toolbar").show();
+                            }
                         </script>
                     </li>
                     <li>
-                       <a onclick="oncam(); showHelp(); hideTools();" class="item-link list-button addcard" style="font-size:24px; padding-top:15px; ">Manual Entry<br><div class="miniText" style="margin-top:-15px;font-size:10px;">Type up your flashcards. Proven to be as accurate as you are.</div></a>
+                        <a onclick="oncam(); showHelp(); hideTools();" class="item-link list-button addcard" style="font-size:24px; padding-top:15px; ">Manual Entry<br><div class="miniText" style="margin-top:-15px;font-size:10px;">Type up your flashcards. Proven to be as accurate as you are.</div></a>
                         <script>
-                        //switch active div to hometab div
+                            //switch active div to hometab div
                             function oncam() {
                                 var home = document.getElementById('active');
                                 var mantab = document.getElementById('addmantab');
@@ -417,67 +417,70 @@
                             }
                         </script>
                     </li>
-                  </ul>
-            </div>
+                </ul>
             </div>
         </div>
+    </div>
 
     <div id="popovercontent">
-    <div class="popover popover-help" style="margin-top:67%; text-align:center; width:70%;margin-left:15%" >
-        <!-- Popover's angle arrow -->
-        <div class="popover-angle"></div>
+        <div class="popover popover-help" style="margin-top:67%; text-align:center; width:70%;margin-left:15%">
+            <!-- Popover's angle arrow -->
+            <div class="popover-angle"></div>
 
-        <!-- Popover content -->
-        <div class="popover-inner" style="text-align:center; margin-left:20px;">
-            <div class="content-block">
-                <p>Tap "Term" and "Definition" to begin entering content that belongs on either side of the card. Once the row is filled, a new card slot will appear.</p>
+            <!-- Popover content -->
+            <div class="popover-inner" style="text-align:center; margin-left:20px;">
+                <div class="content-block">
+                    <p>Tap "Term" and "Definition" to begin entering content that belongs on either side of the card. Once the row is filled, a new card slot will appear.</p>
+                </div>
             </div>
         </div>
     </div>
-    </div>
 
-<!-- MANUAL ENTRY FOLLOWS                                      -->
-        <div id="addmantab" data-page="addmantab" class="page navbar-fixed">
-            <!-- need device resolution specific css for navbar label here -->
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <div class="left">
-                        <a onclick="onca(); showTools();" class="link">
-                            <i class="icon icon-back"></i>
-                        </a>
-                    </div>
-                    <div class="center">Manual Entry</div>
-                    <div class="right">
-                        <a class="link" onclick="getWords(); getTitle(); getDatabasePUSH(); onca(); showTools();">
+    <!-- MANUAL ENTRY FOLLOWS                                      -->
+    <div id="addmantab" data-page="addmantab" class="page navbar-fixed">
+        <!-- need device resolution specific css for navbar label here -->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a onclick="onca(); showTools();" class="link">
+                        <i class="icon icon-back"></i>
+                    </a>
+                </div>
+                <div class="center">Manual Entry</div>
+                <div class="right">
+                    <a class="link" onclick="getWords(); getTitle(); getDatabasePUSH(); onca(); showTools();">
                             Done
                         </a>
-                    </div>
                 </div>
             </div>
-            <div class="page-content">
-                <div class="undernav">
-                    <p style="left: 3%; text-align:center; font-size: 20px; margin: 10px;  margin-top:18px;">
-                        <input type="text" class ="lockedmargin" id="def" style="border: none;margin-top: 9px;height: 200%;display: inline;font-family:'Avenir' Roboto;font-size: 20px;text-align:center;margin-bottom:10px;border-bottom:1px solid lightgray; width:84%; margin-left:-5px;padding-bottom:5px;" placeholder="Set New Stack Title" onclick="clear()"/>
-                        <script>
+        </div>
+        <div class="page-content">
+            <div class="undernav">
+                <p style="left: 3%; text-align:center; font-size: 20px; margin: 10px;  margin-top:18px;">
+                    <input type="text" class="lockedmargin" id="def" style="border: none;margin-top: 9px;height: 200%;display: inline;font-family:'Avenir' Roboto;font-size: 20px;text-align:center;margin-bottom:10px;border-bottom:1px solid lightgray; width:84%; margin-left:-5px;padding-bottom:5px;" placeholder="Set New Stack Title" onclick="clear()" />
+                    <script>
                         function clear() {
                             console.log("test");
-                            document.getElementById('def').setAttribute('value','');
+                            document.getElementById('def').setAttribute('value', '');
                         }
-                        </script>
-                    </p>
-                    <a href="#" data-popover=".popover-help" class="open-popover modal-in"></a>
+                    </script>
+                </p>
+                <a href="#" data-popover=".popover-help" class="open-popover modal-in"></a>
                 <table id="mantab" style="cursor:pointer;" onkeypress="scan(event)">
                     <tr>
-                        <td><input type='text' placeholder="Term" class="inp1" value=""/></td>
-                        <td><input type='text' placeholder="Definition" class="inp2" value=""/></td>
+                        <td>
+                            <input type='text' placeholder="Term" class="inp1" value="" />
+                        </td>
+                        <td>
+                            <input type='text' placeholder="Definition" class="inp2" value="" />
+                        </td>
                     </tr>
                 </table>
                 <script>
+                    var boo = false;
 
-                var boo = false;
-				
                     var table = document.getElementById("mantab");
-                    
+
                     function scan(e) {
                         var cell;
                         for (var i = 0; i < table.rows.length; i++) {
@@ -492,20 +495,19 @@
                             refocus();
                         }
                     }
-                    
+
                     function refocus() {
                         var q;
                         var m = 0;
-                        for (var i = 0; i < table.rows.length+1; i++) {
-                            q = document.getElementsByClassName("inp1")[document.getElementsByClassName("inp1").length-2];
+                        for (var i = 0; i < table.rows.length + 1; i++) {
+                            q = document.getElementsByClassName("inp1")[document.getElementsByClassName("inp1").length - 2];
                         }
                         console.log(q);
                         q.focus();
                     }
 
-
                     function showHelp() {
-                        if(!boo) {
+                        if (!boo) {
                             myApp.popup(document.getElementById("popovercontent").innerHTML, true);
                             boo = true;
                         } else {
@@ -518,21 +520,22 @@
                     var title;
 
                     function getWords() {
-                        var keys = [], values = [];
+                        var keys = [],
+                            values = [];
 
-                        $('table tr input').each(function(i,e){
-                          //access the input's value like this:
+                        $('table tr input').each(function(i, e) {
+                            //access the input's value like this:
                             var $e = $(e);
-                            if($e.hasClass('inp1')){
+                            if ($e.hasClass('inp1')) {
                                 keys.push($e.val());
-                            }else{
+                            } else {
                                 values.push($e.val());
                             }
                         });
-                          words = keys.join(',');
-                          defs = values.join(',');
-                          console.log(keys);
-                          console.log(values);
+                        words = keys.join(',');
+                        defs = values.join(',');
+                        console.log(words);
+                        console.log(defs);
                     }
 
                     function getTitle() {
@@ -540,121 +543,122 @@
                     }
 
                     function pushDB(tx) {
-                        //alert("Insert into FlippitDB_11 values(1,'" + USER + "','" + a + "',1,'" + words + "','" + defs + "' )");
-                        if((title != null)) {
+                        if ((title != null) && (title.trim != "") && (title !== 'undefined')) {
                             tx.executeSql("Insert into FlippitDB_13 values(1,'" + USER + "','" + title + "',1,'" + words + "','" + defs + "' )");
                         }
                     }
+
                     function getDatabasePUSH() {
-                        database = window.openDatabase("FlippitDB_13","1.0","Notecard Saves",20000000);
-                        database.transaction(pushDB,errorDB,successDB);
+                        database = window.openDatabase("FlippitDB_13", "1.0", "Notecard Saves", 20000000);
+                        database.transaction(pushDB, errorDB, successDB);
                     }
+
                     function pushSuccess() {
 
                     }
 
-
-                //}
+                    //}
                 </script>
 
             </div>
-                <br>
+            <br>
             <!-- <p class="buttons-column"> -->
-                <!--  padding:10px; height:117% -->
+            <!--  padding:10px; height:117% -->
 
-                <!-- <a onclick="addrow()" style="margin-left:45px; margin-bottom:7px;" class="button button-raised color-orange">Add Card +</a> -->
-                <script>
+            <!-- <a onclick="addrow()" style="margin-left:45px; margin-bottom:7px;" class="button button-raised color-orange">Add Card +</a> -->
+            <script>
                 function addrow() {
                     var table = document.getElementById("mantab");
                     var row = table.insertRow();
                     var cell1 = row.insertCell(0);
                     var cell2 = row.insertCell(1);
-                        cell1.innerHTML = "<input type='text' class='inp1' placeholder='Term' value=''/>"
-                        cell2.innerHTML = "<input type='text' class='inp2' placeholder='Definition' value=''/>"
+                    cell1.innerHTML = "<input type='text' class='inp1' placeholder='Term' value=''/>"
+                    cell2.innerHTML = "<input type='text' class='inp2' placeholder='Definition' value=''/>"
                 }
-                </script>
+            </script>
 
-                <p style="color:gray;font-size:13px;margin-left:45px;text-align:center">New card slots will automatically appear as cards are entered.</p>
-                <br><br><br>
+            <p style="color:gray;font-size:13px;margin-left:45px;text-align:center">New card slots will automatically appear as cards are entered.</p>
+            <br>
+            <br>
+            <br>
 
-            </div>
-            </div>
+        </div>
+    </div>
 
-
-<!-- AUTOMATIC ENTRY FOLLOWS                                                  -->
-        <div id="addauttab" data-page="addauttab" class="page navbar-fixed">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <div class="left">
-                        <a onclick="onca()" class="link">
-                            <i class="icon icon-back"></i>
-                        </a>
-                    </div>
-                    <div class="center">Automatic Entry</div>
+    <!-- AUTOMATIC ENTRY FOLLOWS                                                  -->
+    <div id="addauttab" data-page="addauttab" class="page navbar-fixed">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a onclick="onca()" class="link">
+                        <i class="icon icon-back"></i>
+                    </a>
                 </div>
-            </div>
-            <div class="page-content">
+                <div class="center">Automatic Entry</div>
             </div>
         </div>
+        <div class="page-content">
+        </div>
+    </div>
 
-<!-- STATS TAB FOLLOWS                                                  -->
-        <div id="statstab" data-page="statstab" class="page navbar-fixed">
+    <!-- STATS TAB FOLLOWS                                                  -->
+    <div id="statstab" data-page="statstab" class="page navbar-fixed">
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center">Statistics</div>
             </div>
         </div>
         <div class="page-content" style="padding-top:10px;">
-        <div class="list-block">
-                  <ul>
+            <div class="list-block">
+                <ul>
                     <br>
                     <br>
 
                     <li>
                         <div class="card">
-                          <div class="card-header">Set 1</div>
-                          <div class="card-content">
-                            <div class="card-content-inner">4h 52m</div>
-                          </div>
-                          <div class="card-footer">90%</div>
+                            <div class="card-header">Set 1</div>
+                            <div class="card-content">
+                                <div class="card-content-inner">4h 52m</div>
+                            </div>
+                            <div class="card-footer">90%</div>
                         </div>
                     </li>
                     <li>
-                      <div class="card">
-                          <div class="card-header">Set 2</div>
-                          <div class="card-content">
-                            <div class="card-content-inner">2h 3m</div>
-                          </div>
-                          <div class="card-footer">23%</div>
+                        <div class="card">
+                            <div class="card-header">Set 2</div>
+                            <div class="card-content">
+                                <div class="card-content-inner">2h 3m</div>
+                            </div>
+                            <div class="card-footer">23%</div>
                         </div>
                     </li>
                     <li>
-                      <div class="card">
-                          <div class="card-header">Set 3</div>
-                          <div class="card-content">
-                            <div class="card-content-inner">0h 20m</div>
-                          </div>
-                          <div class="card-footer">99%</div>
+                        <div class="card">
+                            <div class="card-header">Set 3</div>
+                            <div class="card-content">
+                                <div class="card-content-inner">0h 20m</div>
+                            </div>
+                            <div class="card-footer">99%</div>
                         </div>
                     </li>
                     <li>
-                    <div class="card">
-                          <div class="card-header">Set 4</div>
-                          <div class="card-content">
-                            <div class="card-content-inner">2h 00m</div>
-                          </div>
-                          <div class="card-footer">COMPLETE</div>
+                        <div class="card">
+                            <div class="card-header">Set 4</div>
+                            <div class="card-content">
+                                <div class="card-content-inner">2h 00m</div>
+                            </div>
+                            <div class="card-footer">COMPLETE</div>
                         </div>
                     </li>
-                      <br>
-                      <br>
-                      <br>
-                  </ul>
-            </div>
+                    <br>
+                    <br>
+                    <br>
+                </ul>
             </div>
         </div>
-<!-- SETTINGS TAB FOLLOWS                                      -->
-        <div id="settingstab" data-page="settingstab" class="page navbar-fixed">
+    </div>
+    <!-- SETTINGS TAB FOLLOWS                                      -->
+    <div id="settingstab" data-page="settingstab" class="page navbar-fixed">
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center">Settings</div>
@@ -662,73 +666,68 @@
         </div>
         <div class="page-content">
             <div class="list-block undernav">
-                  <ul>
+                <ul>
                     <li>
                         <a href="#" class="button button-big button-fill button-raised color-red" style="margin:10px" onclick="oncma()">Sign Out</a>
                         <script>
-                        function oncma() {
-                            //var home = document.getElementById('active');
-                            //var logmein = document.getElementById('logmein');
-                            //home.innerHTML = nodeToString(logmein);
-                            location.reload(true);
-                        }
+                            function oncma() {
+                                //var home = document.getElementById('active');
+                                //var logmein = document.getElementById('logmein');
+                                //home.innerHTML = nodeToString(logmein);
+                                location.reload(true);
+                            }
                         </script>
                     </li>
-                  </ul>
-        </div>
+                </ul>
+            </div>
         </div>
 
-    <div id="holder">
-    <div id="anyset" data-page="activeloading" class="page navbar-fixed">
+        <div id="holder">
+            <div id="anyset" data-page="activeloading" class="page navbar-fixed">
 
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="left">
-                        <a onclick="onch()" class="link">
-                            <i class="icon icon-back"></i>
-                        </a>
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a onclick="onch()" class="link">
+                                <i class="icon icon-back"></i>
+                            </a>
+                        </div>
+                        <div class="center">Set Options</div>
                     </div>
-                <div class="center">Set Options</div>
+                </div>
+                <div class="page-content undernav">
+
+                    <div id="responseDBdiv"></div>
+                </div>
+                <script>
+                </script>
             </div>
         </div>
-        <div class="page-content undernav">
 
-            <div id="responseDBdiv"></div>
-        </div>
-            <script>
+        <!-- HOME TAB FOLLOWS                                      -->
+        <div id="hometab" data-page="hometab" class="page navbar-fixed">
 
-            </script>
-    </div>
-    </div>
-
-<!-- HOME TAB FOLLOWS                                      -->
-    <div id="hometab" data-page="hometab" class="page navbar-fixed">
-
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="center">Notecard Sets</div>
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="center">Notecard Sets</div>
+                </div>
             </div>
-        </div>
-        <div class="page-content">
-            <div class="list-block undernav">
-                <div id="loadDBLIST">
-                  <ul>
-                    <li>
-                      <a href="#" class="item-link list-button nset"></a>
-                    </li>
-                  </ul>
-                <div>
-            </div>
-        </div>
-    </div>
+            <div class="page-content">
+                <div class="list-block undernav">
+                    <div id="loadDBLIST">
+                        <ul>
+                            <li>
+                                <a href="#" class="item-link list-button nset"></a>
+                            </li>
+                        </ul>
+                        <div>
+                        </div>
+                    </div>
+                </div>
 
-
-
-    <script type="text/javascript">
-        app.initialize();
-
-    </script>
-
+                <script type="text/javascript">
+                    app.initialize();
+                </script>
 
 </body>
 
