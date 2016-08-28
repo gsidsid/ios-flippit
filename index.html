@@ -272,7 +272,7 @@
                                     }
 
                                     function getData() {
-                                        var cardsListTable = "<table style='margin-top: 80px; font-size: 16px'>";
+                                        var cardsListTable = "<a href='#'style='margin-top:500px; font-size:120px;'>hi</a><table style='margin-top: 80px; font-size: 16px;'>";
                                         //document.write("<a href='#'>" + 'text' + "</a>");
 
                                         cardsListTable += "<tr><th>Terms</th><th>Definitions</th></tr>";
@@ -286,20 +286,23 @@
                                                 for (var j = 0; j < words.length-1; j++) {
                                                     cardsListTable += "<tr><td>" + words[j] + "</td><td>" + defs[j] + "</td></tr>";
                                                 }
-                                                /*mtemp += "<tr><td>" + globalresponse.rows.item(i).SetName + "</td><td>" + globalresponse.rows.item(i).WordsMark + "</td><td>" + globalresponse.rows.item(i).DefsMark + "</td><td>" + words[1] + "</td></tr>";*/
                                             }
                                         }
                                         cardsListTable += "</table>";
-                                        var notecardButton = "<a href='#' class='button button-big button-fill button-raised color-red' style='margin:10px' onclick='generateNotecards()'>" + 'Notecards' + "</a>";
 
                                         return cardsListTable;
                                     }
+
+                                   function hideTools() {
+                                        $(".toolbar").hide();
+                                   }
+
                                 </script>
                                 <div class="list-block undernav">
                                     <div id="loadDBLIST">
                                         <ul>
                                             <li>
-                                                <a href="#" class="item-link list-button nset" onclick="loadset();"></a>
+                                                <a href="#" class="item-link list-button nset" onclick="hideTools(); loadset();"></a>
                                             </li>
                                         </ul>
                                     </div>
