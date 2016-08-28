@@ -131,6 +131,10 @@ table, tr {
     margin-left: 11%;
 }
 
+table .indent {
+    margin-top: 80px;
+    font-size: 90%;
+}
 @media screen and (min-width: 500px){
     /* IF HORIZONTAL IPHONE 6 */
 p {

@@ -100,6 +100,7 @@
 
     }
             //ROLLNO AccountName, SetName, CardCount, Words, Defs
+    var globalresponse;
     function resultSuccess(tx, response) {
 
         var div = document.getElementById("responseDBdiv");
@@ -112,6 +113,7 @@
         for(var i=0;i<response.rows.length;i++) {
             var a = response.rows.item(i).AccountName.toString();
 
+            globalresponse = response;
 
             if(auth && (a.toLowerCase() == USER.toLowerCase())) {
                 temp2 += "<li><a href='#' class='item-link list-button nset' onclick='loadset(this.innerText);'>" + response.rows.item(i).SetName + "</a></li>";
@@ -293,13 +295,33 @@
         </div>
         <!-- <div class="page-content"> -->
             <script>
-
             function loadset(gonum) {
                 activeSetName = gonum;
-                var home = document.getElementById('active');
-                var anyset = document.getElementById('anyset');
-                home.innerHTML = nodeToString(anyset);
+
+                var responseDiv = document.getElementById('responseDBdiv');
+                var aad = getData();
+                responseDiv.innerHTML = aad;
+                //responseDiv = nodeToString(div);
+
+                //alert(document.getElementById('responseDBdiv').innerHTML);
+
+                var homee = document.getElementById('active');
+                var anysetd = document.getElementById("anyset")
+                homee.innerHTML = nodeToString(anysetd);
             }
+
+            function getData() {
+                var mtemp = "<table style='margin-top: 80px;font-size: 90%;'>";
+                mtemp += "<tr><th>Set_Name</th><th>Words_Data</th><th>Defs_Data</th></tr>";
+                for(var i=0;i<globalresponse.rows.length;i++) {
+                    if(activeSetName == globalresponse.rows.item(i).SetName) {
+                        mtemp += "<tr><td>" + globalresponse.rows.item(i).SetName + "</td><td>" + globalresponse.rows.item(i).WordsMark + "</td><td>" + globalresponse.rows.item(i).DefsMark + "</td></tr>";
+                    }
+                }
+                mtemp+="</table>";
+                return mtemp;
+            }
+
             </script>
             <div class="list-block undernav">
                 <div id="loadDBLIST">
@@ -320,22 +342,6 @@
 
 
 
-    <div id="anyset" data-page="activeloading" class="page navbar-fixed">
-
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="center">Notecard Sets</div>
-            </div>
-        </div>
-        <div class="page-content">
-
-            <div id="responseDBdiv"></div>
-            <script>
-
-            </script>
-
-        </div>
-    </div>
 
 <!-- ALL TAB VIEWS FOLLOW -->
 
@@ -459,7 +465,13 @@
                         }
                         </script>
                     </p>
+                    <a href="#" data-popover=".popover-help" class="open-popover modal-in"></a>
                 <table id="mantab" style="cursor:pointer;" onkeypress="scan(event)">
+                    <tr>
+                        <td><input type='text' placeholder="Term" class="inp1" value=""/></td>
+                        <td><input type='text' placeholder="Definition" class="inp2" value=""/></td>
+                    </tr>
+                </table>
                 <script>
 
                 var boo = false;
@@ -474,6 +486,9 @@
 
                         if (e.keyCode == 13 && $(cell).is(':focus')) {
                             addrow();
+
+                            getWords(); //debugging only
+
                             refocus();
                         }
                     }
@@ -487,26 +502,7 @@
                         console.log(q);
                         q.focus();
                     }
-                    
-                 
-                    function atVal(cel) {
-                        cel.innerHTML = "tapped";
-                    }
 
-                    function cert() {
-                        var x = document.getElementsByClassName("active-state");
-                        x.innerHTML = "tapped";
-                    }
-
-                    function waitSeconds(iMilliSeconds) {
-                        var counter= 0
-                            , start = new Date().getTime()
-                            , end = 0;
-                        while (counter < iMilliSeconds) {
-                            end = new Date().getTime();
-                            counter = end - start;
-                        }
-                    }
 
                     function showHelp() {
                         if(!boo) {
@@ -522,18 +518,21 @@
                     var title;
 
                     function getWords() {
-                        for (var i = 0, row; row = table.rows[i]; i++) {
-                           //iterate through rows
-                           //rows would be accessed using the "row" variable assigned in the for loop
-                           for (var j = 0, col; col = row.cells[j]; j++) {
-                             if(col == 0) {
-                                 words += col.innerHTML + ",";
-                                 words += col.val() + ",";
-                             } else {
-                                 defs += col.value + ",";
-                             }
-                           }
-                        }
+                        var keys = [], values = [];
+
+                        $('table tr input').each(function(i,e){
+                          //access the input's value like this:
+                            var $e = $(e);
+                            if($e.hasClass('inp1')){
+                                keys.push($e.val());
+                            }else{
+                                values.push($e.val());
+                            }
+                        });
+                          words = keys.join(',');
+                          defs = values.join(',');
+                          console.log(keys);
+                          console.log(values);
                     }
 
                     function getTitle() {
@@ -542,7 +541,9 @@
 
                     function pushDB(tx) {
                         //alert("Insert into FlippitDB_11 values(1,'" + USER + "','" + a + "',1,'" + words + "','" + defs + "' )");
-                        tx.executeSql("Insert into FlippitDB_13 values(1,'" + USER + "','" + title + "',1,'" + words + "','" + defs + "' )");
+                        if((title != null)) {
+                            tx.executeSql("Insert into FlippitDB_13 values(1,'" + USER + "','" + title + "',1,'" + words + "','" + defs + "' )");
+                        }
                     }
                     function getDatabasePUSH() {
                         database = window.openDatabase("FlippitDB_13","1.0","Notecard Saves",20000000);
@@ -555,13 +556,7 @@
 
                 //}
                 </script>
-                    <tr>
-                        <td><input type='text' placeholder="Term" class="inp1" value=""/>
-                        <a href="#" data-popover=".popover-help" class="open-popover modal-in"></a>
-                        </td>
-                        <td><input type='text' placeholder="Definition" class="inp2" value=""/></td>
-                    </tr>
-                </table>
+
             </div>
                 <br>
             <!-- <p class="buttons-column"> -->
@@ -682,6 +677,29 @@
                   </ul>
         </div>
         </div>
+
+    <div id="holder">
+    <div id="anyset" data-page="activeloading" class="page navbar-fixed">
+
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                        <a onclick="onch()" class="link">
+                            <i class="icon icon-back"></i>
+                        </a>
+                    </div>
+                <div class="center">Set Options</div>
+            </div>
+        </div>
+        <div class="page-content undernav">
+
+            <div id="responseDBdiv"></div>
+        </div>
+            <script>
+
+            </script>
+    </div>
+    </div>
 
 <!-- HOME TAB FOLLOWS                                      -->
     <div id="hometab" data-page="hometab" class="page navbar-fixed">
