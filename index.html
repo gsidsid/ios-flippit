@@ -40,12 +40,14 @@
         * Enable eval(): add 'unsafe-eval' to default-src
     * Create your own at http://cspisawesome.com
     -->
+    <link rel="stylesheet" type="text/css" href="notecard-build.css" />
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <!-- Framework7 Library CSS Proper, color related styles, iOS Theme -->
     <link rel="stylesheet" href="css/framework7/framework7.material.min.css">
     <link rel="stylesheet" href="css/framework7/framework7.material.colors.css">
     <link rel="stylesheet" href="css/framework7/my-app.css" />
+
     <!-- <script type="text/javascript" src="cordova.js"></script> -->
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/jQuery/jquery-3.1.0.slim.min.js"></script>
@@ -61,6 +63,26 @@
         var auth = true;
         var lastSet;
         var activeSetName;
+        var swiperH = new Swiper('.swiper-container-h', {
+                        pagination: '.swiper-pagination-h'
+                        , paginationType: 'fraction'
+                    });
+        var swiperV = new Swiper('.swiper-container-f', {
+                        direction: 'vertical'
+                        , effect: 'flip'
+                        , loop: true
+                    });
+        var swiperV = new Swiper('.swiper-container-f2', {
+                        direction: 'vertical'
+                        , effect: 'flip'
+                        , loop: true
+                    });
+        var swiperV = new Swiper('.swiper-container-f3', {
+                        direction: 'vertical'
+                        , effect: 'flip'
+                        , spaceBetween: 50
+                        , loop: true
+                    });
 
         function upCreds() {
             var creds = $('#logmein').serializeArray();
@@ -271,6 +293,30 @@
                                         homee.innerHTML = nodeToString(anysetd);
                                     }
 
+                                    function generateNotecards() {
+                                        //get element carded and add notecard for each word
+                                        //change div to notecard engine
+                                        var notediv = document.getElementsByClassName("swiper-wrapper")[0];
+
+                                        var strVarA = "";
+                                        for(var t = 0; t < words.length-1; t++) {
+                                            strVarA += "<div class=\"swiper-slide\">";
+                                            strVarA += "  <div class=\"swiper-container swiper-container-f\">";
+                                            strVarA += "       <div class=\"swiper-wrapper\">";
+                                            strVarA += "            <div class=\"swiper-slide\">" + words[t] + "<\/div>";
+                                            strVarA += "            <div class=\"swiper-slide\">" + defs[t] + "<\/div>";
+                                            strVarA += "       <\/div>";
+                                            strVarA += "  <\/div>";
+                                            strVarA += "<\/div>";
+                                        }
+                                        notediv.innerHTML = strVarA;
+                                        console.log(strVarA);
+
+                                        var exn = document.getElementById("notecardEngine");
+                                        var an = document.getElementById("active");
+                                        an.innerHTML = nodeToString(exn);
+                                    }
+
                                     function getData() {
                                         var cardsListTable = "<table style='margin-top: 80px; font-size: 16px'>";
                                         //document.write("<a href='#'>" + 'text' + "</a>");
@@ -280,19 +326,23 @@
                                         for (var i = 0; i < globalresponse.rows.length; i++) {
                                             if (activeSetName == globalresponse.rows.item(i).SetName) {
 
-                                               words = globalresponse.rows.item(i).WordsMark.split(',');
-                                               defs = globalresponse.rows.item(i).DefsMark.split(',');
+                                                words = globalresponse.rows.item(i).WordsMark.split(',');
+                                                defs = globalresponse.rows.item(i).DefsMark.split(',');
+                                                console.log(globalresponse.rows.item(i).WordsMark);
+
 
                                                 for (var j = 0; j < words.length-1; j++) {
                                                     cardsListTable += "<tr><td>" + words[j] + "</td><td>" + defs[j] + "</td></tr>";
                                                 }
                                                 /*mtemp += "<tr><td>" + globalresponse.rows.item(i).SetName + "</td><td>" + globalresponse.rows.item(i).WordsMark + "</td><td>" + globalresponse.rows.item(i).DefsMark + "</td><td>" + words[1] + "</td></tr>";*/
                                             }
+
                                         }
                                         cardsListTable += "</table>";
-                                        var notecardButton = "<a href='#' class='button button-big button-fill button-raised color-red' style='margin:10px' onclick='generateNotecards()'>" + 'Notecards' + "</a>";
+                                        document.getElementById("insetname").innerText = activeSetName;
+                                        var notecardButton = "<a class='button button-big button-fill button-raised color-green' style='margin:50px' onclick='generateNotecards();'>" + 'Notecards' + "</a>";
 
-                                        return cardsListTable;
+                                        return cardsListTable + notecardButton;
                                     }
                                 </script>
                                 <div class="list-block undernav">
@@ -607,6 +657,33 @@
                 </ul>
             </div>
         </div>
+
+
+            <div id="notecardEngine" data-page="notecardEngine" class="page navbar-fixed">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a onclick="onch()" class="link"> <i class="icon icon-back"></i> </a>
+                        </div>
+                        <div id="insetname" class="center">Cards</div>
+                    </div>
+                </div>
+                <div class="page-content undernav">
+                    <div class="swiper-container swiper-container-h">
+                        <div class="swiper-wrapper">
+
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination swiper-pagination-h"></div>
+                    </div>
+                </div>
+                <script>
+                </script>
+            </div>
+
+
+
+
+
         <div id="holder">
             <div id="anyset" data-page="activeloading" class="page navbar-fixed">
                 <div class="navbar">
@@ -614,7 +691,7 @@
                         <div class="left">
                             <a onclick="onch()" class="link"> <i class="icon icon-back"></i> </a>
                         </div>
-                        <div class="center">Set Options</div>
+                        <div id="insetname" class="center">Set Options</div>
                     </div>
                 </div>
                 <div class="page-content undernav">
@@ -642,8 +719,11 @@
                         <div> </div>
                     </div>
                 </div>
+            </div>
+        </div>
                 <script type="text/javascript">
                     app.initialize();
+
                 </script>
 </body>
 
