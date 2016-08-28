@@ -280,11 +280,11 @@
                                         for (var i = 0; i < globalresponse.rows.length; i++) {
                                             if (activeSetName == globalresponse.rows.item(i).SetName) {
 
-                                                var terms = globalresponse.rows.item(i).WordsMark.split(',');
-                                                var definitions = globalresponse.rows.item(i).DefsMark.split(',');
+                                               words = globalresponse.rows.item(i).WordsMark.split(',');
+                                               defs = globalresponse.rows.item(i).DefsMark.split(',');
 
-                                                for (var i = 0; i < terms.length-1; i++) {
-                                                    cardsListTable += "<tr><td>" + terms[i] + "</td><td>" + definitions[i] + "</td></tr>";
+                                                for (var j = 0; j < words.length-1; j++) {
+                                                    cardsListTable += "<tr><td>" + words[j] + "</td><td>" + defs[j] + "</td></tr>";
                                                 }
                                                 /*mtemp += "<tr><td>" + globalresponse.rows.item(i).SetName + "</td><td>" + globalresponse.rows.item(i).WordsMark + "</td><td>" + globalresponse.rows.item(i).DefsMark + "</td><td>" + words[1] + "</td></tr>";*/
                                             }
