@@ -306,12 +306,17 @@
                                         $('.swiper-wrapper').empty();
                                         //CHANGE LOOP SO i<words.length
                                         for(var i = 0; i < words.length; i++) {
-                                            $('.swiper-wrapper').append(
-                                                //'<div class="swiper-slide">Slide ' + (i+1) + '</div>',
-
-                                                '<div class="swiper-slide"><div class="swiper-container swiper-container-f' + (i) + '"><div class="swiper-wrapper"><div class="swiper-slide">Term ' + words[i] + '</div><div class="swiper-slide">Definition ' + defs[i] + '</div></div></div></div>'
-                                            );
-
+                                            if(i==0) {
+                                                $('.swiper-wrapper').append(
+                                                    //'<div class="swiper-slide">Slide ' + (i+1) + '</div>',
+                                                    '<div class="swiper-container swiper-container-f' + (i) + '"><div class="swiper-slide">Term ' + words[i] + '</div><div class="swiper-slide">Definition ' + defs[i] + '</div></div>'
+                                                );
+                                            } else {
+                                                $('.swiper-wrapper').append(
+                                                    //'<div class="swiper-slide">Slide ' + (i+1) + '</div>',
+                                                    '<div class="swiper-container swiper-container-f' + (i) + '"><div class="swiper-slide">Term ' + words[i] + '</div><div class="swiper-slide">Definition ' + defs[i] + '</div></div>'
+                                                );
+                                            }
                                             var swiper = new Swiper('.swiper-container', {
                                                 pagination: '.swiper-pagination',
                                                 paginationType: 'fraction',
