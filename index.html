@@ -293,53 +293,50 @@
                                         homee.innerHTML = nodeToString(anysetd);
                                     }
 
-                                    function generateNotecards() {
+                                    function generateNotecards() { //WIP --------------------------------------
+
                                         //get element carded and add notecard for each word
                                         //change div to notecard engine
                                         var notediv = document.getElementsByClassName("swiper-wrapper")[0];
 
-                                        var strVarA = "";
-                                        for(var t = 0; t < words.length-1; t++) {
-                                            strVarA += "<div class=\"swiper-container\">";
-                                            strVarA += "    <div class=\"swiper-wrapper\">;
-                                            strVarA += "    </div>;
-                                            strVarA += "    <div class=\"swiper-pagination\"></div>;
-                                            strVarA += "<\/div>";
-                                        }
-                                        var swiper = new Swiper('.swiper-container', {
-                                            pagination: '.swiper-pagination',
-                                            paginationType: 'fraction',
-                                            slidesPerView: 2,
-                                            centeredSlides: true,
-                                            spaceBetween: 10,
-                                        });
+
+
 
                                         var otherSwipers = [];
-
+                                        $('.swiper-wrapper').empty();
                                         //CHANGE LOOP SO i<words.length
                                         for(var i = 0; i < words.length; i++) {
-                                            swiper.appendSlide([
+                                            $('.swiper-wrapper').append(
                                                 //'<div class="swiper-slide">Slide ' + (i+1) + '</div>',
 
                                                 '<div class="swiper-slide"><div class="swiper-container swiper-container-f' + (i) + '"><div class="swiper-wrapper"><div class="swiper-slide">Term ' + words[i] + '</div><div class="swiper-slide">Definition ' + defs[i] + '</div></div></div></div>'
-                                            ]);
+                                            );
 
+                                            var swiper = new Swiper('.swiper-container', {
+                                                pagination: '.swiper-pagination',
+                                                paginationType: 'fraction',
+                                                slidesPerView: 2,
+                                                centeredSlides: true,
+                                                spaceBetween: 10,
+                                            });
                                             var swiperV = new Swiper('.swiper-container-f'+(i), {
                                                 direction: 'vertical'
                                                 , effect: 'flip'
                                                 , loop: true
                                             });
 
-                                            otherSwipers.push(swiperV);
-                                            console.log('.swiper-container-f'+(i));
-                                        }
+                                            console.log(notediv.innerHTML);
 
-                                        notediv.innerHTML = strVarA;
-                                        console.log(strVarA);
+                                        }
 
                                         var exn = document.getElementById("notecardEngine");
                                         var an = document.getElementById("active");
                                         an.innerHTML = nodeToString(exn);
+
+                                    }
+
+                                    function clearVars() {
+                                        swiper = null;
                                     }
 
                                     function getData() {
@@ -365,7 +362,7 @@
                                         }
                                         cardsListTable += "</table>";
                                         document.getElementById("insetname").innerText = activeSetName;
-                                        var notecardButton = "<a class='button button-big button-fill button-raised color-green' style='margin:50px' onclick='generateNotecards();'>" + 'Notecards' + "</a>";
+                                        var notecardButton = "<a class='button button-big button-raised color-green' style='margin:44px; right:3px;' onclick='clearVars(); generateNotecards();'>" + 'Notecards' + "</a>";
 
                                         return cardsListTable + notecardButton;
                                     }
@@ -381,6 +378,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -694,13 +692,9 @@
                     </div>
                 </div>
                 <div class="page-content undernav">
-                    <div class="swiper-container swiper-container-h">
-                        <div class="swiper-wrapper">
-
-                        <!-- Add Pagination -->
-                        <div class="swiper-pagination swiper-pagination-h"></div>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper"></div>
                     </div>
-                </div>
                 <script>
                 </script>
             </div>
