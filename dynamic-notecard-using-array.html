@@ -94,7 +94,6 @@
     <!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -119,7 +118,7 @@
         swiper.appendSlide([
             //'<div class="swiper-slide">Slide ' + (i+1) + '</div>',
 
-            '<div class="swiper-slide"><div class="swiper-container swiper-container-f' + (i+1) + '"><div class="swiper-wrapper"><div class="swiper-slide">Term ' + (i+1) + '</div><div class="swiper-slide">Definition ' + (i+1) + '</div></div></div></div>'
+            '<div class="swiper-slide"><div class="swiper-container swiper-container-f' + (i) + '"><div class="swiper-wrapper"><div class="swiper-slide">Term ' + (i) + '</div><div class="swiper-slide">Definition ' + (i) + '</div></div></div></div>'
         ]);
 
         var swiperV = new Swiper('.swiper-container-f'+(i), {
