@@ -294,7 +294,7 @@
                                     }
 
                                     function generateNotecards() { //WIP --------------------------------------
-
+                                        /*
                                         //get element carded and add notecard for each word
                                         //change div to notecard engine
                                         var notediv = document.getElementsByClassName("swiper-wrapper")[0];
@@ -325,9 +325,11 @@
                                                 spaceBetween: 10,
                                             });
 
+                                        */
                                         var exn = document.getElementById("notecardEngine");
+                                        $(".toolbar").hide();
                                         var an = document.getElementById("active");
-                                        an.innerHTML = nodeToString(exn);
+                                        //an.innerHTML = nodeToString(exn);
 
                                     }
 
@@ -358,7 +360,7 @@
                                         }
                                         cardsListTable += "</table>";
                                         document.getElementById("insetname").innerText = activeSetName;
-                                        var notecardButton = "<a class='button button-big button-raised color-green' style='margin:44px; right:3px;' onclick='clearVars(); generateNotecards();'>" + 'Notecards' + "</a>";
+                                        var notecardButton = "<a class='button button-big button-raised color-green' style='margin:44px; right:3px;' onclick='clearVars(); generateNotecards();'>Notecards</a>";
 
                                         return cardsListTable + notecardButton;
                                     }
@@ -678,26 +680,94 @@
         </div>
 
 
-            <div id="notecardEngine" data-page="notecardEngine" class="page navbar-fixed">
-                <div class="navbar">
-                    <div class="navbar-inner">
-                        <div class="left">
-                            <a onclick="onch()" class="link"> <i class="icon icon-back"></i> </a>
-                        </div>
-                        <div id="insetname" class="center">Cards</div>
-                    </div>
-                </div>
-                <div class="page-content undernav">
-
-                        <div class="swiper-wrapper"></div>
-
-                <script>
-                </script>
+<div id="notecardEngine" data-page="notecardEngine" class="page navbar-fixed">
+     <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a onclick="onch()" class="link"> <i class="icon icon-back"></i> </a>
             </div>
+            <div id="insetname" class="center">Cards</div>
+        </div>
+    </div>
+<div class="page-content undernav">
+<style>
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 500px;
+        margin: 20px auto;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
 
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-overflow-scrolling: touch
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
 
+    </style>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
 
+    <!-- Initialize Swiper -->
+    <script>
+        app.initialize();
 
+        var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
+        slidesPerView: 2,
+        centeredSlides: true,
+        spaceBetween: 10,
+    });
+
+        var otherSwipers = [];
+
+    //CHANGE LOOP SO i<words.length
+    for(var i = 1; i < words.length; i++) {
+        swiper.appendSlide([
+            //'<div class="swiper-slide">Slide ' + (i+1) + '</div>',
+
+            '<div class="swiper-slide"><div class="swiper-container swiper-container-f' + (i) + '"><div class="swiper-wrapper"><div class="swiper-slide">Term ' + words[i] + '</div><div class="swiper-slide">Definition ' + words[i] + '</div></div></div></div>'
+        ]);
+
+        var swiperV = new Swiper('.swiper-container-f'+(i), {
+            direction: 'vertical'
+            , effect: 'flip'
+            , loop: true
+        });
+
+        otherSwipers.push(swiperV);
+        console.log('.swiper-container-f'+(i));
+    }
+    </script>
+            </div>
+        </div>
 
         <div id="holder">
             <div id="anyset" data-page="activeloading" class="page navbar-fixed">
@@ -716,8 +786,9 @@
                 </script>
             </div>
         </div>
-        <!-- HOME TAB FOLLOWS                                      -->
-        <div id="hometab" data-page="hometab" class="page navbar-fixed">
+
+<!-- HOME TAB FOLLOWS                                      -->
+<div id="hometab" data-page="hometab" class="page navbar-fixed">
             <div class="navbar">
                 <div class="navbar-inner">
                     <div class="center">Notecard Sets</div>
@@ -736,10 +807,12 @@
                 </div>
             </div>
         </div>
-                <script type="text/javascript">
-                    app.initialize();
 
-                </script>
+<script type="text/javascript">
+        app.initialize();
+
+</script>
+
 </body>
 
 </html>
