@@ -294,45 +294,77 @@
                                     }
 
                                     function generateNotecards() { //WIP --------------------------------------
+document.write("<head>   ");
+document.write("  <style>");
+document.write("    body {");
+document.write("        background: #eee;");
+document.write("        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;");
+document.write("        font-size: 14px;");
+document.write("        color:#000;");
+document.write("        margin: 0;");
+document.write("        padding: 0;");
+document.write("    }");
+document.write("    .swiper-container {");
+document.write("        width: 100%;");
+document.write("        height: 100px;");
+document.write("        margin: 20px auto;");
+document.write("    }");
+document.write("    .swiper-slide {");
+document.write("        text-align: center;");
+document.write("        font-size: 18px;");
+document.write("        background: #fff;");
+document.write("");
+document.write("        \/* Center slide text vertically *\/");
+document.write("        display: -webkit-box;");
+document.write("        display: -ms-flexbox;");
+document.write("        display: -webkit-flex;");
+document.write("        display: flex;");
+document.write("        -webkit-box-pack: center;");
+document.write("        -webkit-overflow-scrolling: touch");
+document.write("        -ms-flex-pack: center;");
+document.write("        -webkit-justify-content: center;");
+document.write("        justify-content: center;");
+document.write("        -webkit-box-align: center;");
+document.write("        -ms-flex-align: center;");
+document.write("        -webkit-align-items: center;");
+document.write("        align-items: center;");
+document.write("    }");
+document.write("");
+document.write("    <\/style>");
+document.write("<\/head>");
+document.write("<div class=\"swiper-container\">");
+document.write("        <div class=\"swiper-wrapper\">");
+document.write("        <\/div>");
+document.write("        <div class=\"swiper-pagination\"><\/div>");
+document.write("    <\/div>"); //get element carded and add notecard for each word
 
-                                        //get element carded and add notecard for each word
-                                        //change div to notecard engine
-                                        var notediv = document.getElementsByClassName("swiper-wrapper")[0];
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
+        slidesPerView: 2,
+        centeredSlides: true,
+        spaceBetween: 10,
+    });
 
+        var otherSwipers = [];
 
+    //CHANGE LOOP SO i<words.length
+    for(var i = 0; i < words.length-1; i++) {
+        swiper.appendSlide([
+            //'<div class="swiper-slide">Slide ' + (i+1) + '</div>',
 
+            '<div class="swiper-slide"><div class="swiper-container swiper-container-f' + (i) + '"><div class="swiper-wrapper"><div class="swiper-slide">' + (i) + '</div><div class="swiper-slide">' + (i) + '</div></div></div></div>'
+        ]);
 
-                                        var otherSwipers = [];
-                                        $('.swiper-wrapper').empty();
-                                        //CHANGE LOOP SO i<words.length
-                                        for(var i = 0; i < words.length; i++) {
-                                            if(i==0) {
-                                                $('.swiper-wrapper').append(
-                                                    //'<div class="swiper-slide">Slide ' + (i+1) + '</div>',
-                                                    '<div class="swiper-container swiper-container-f' + (i) + '"><div class="swiper-slide">Term ' + words[i] + '</div><div class="swiper-slide">Definition ' + defs[i] + '</div></div>'
-                                                );
-                                            } else {
-                                                $('.swiper-wrapper').append(
-                                                    //'<div class="swiper-slide">Slide ' + (i+1) + '</div>',
-                                                    '<div class="swiper-container swiper-container-f' + (i) + '"><div class="swiper-slide">Term ' + words[i] + '</div><div class="swiper-slide">Definition ' + defs[i] + '</div></div>'
-                                                );
-                                            }
-                                            var swiper = new Swiper('.swiper-container', {
-                                                pagination: '.swiper-pagination',
-                                                paginationType: 'fraction',
-                                                slidesPerView: 2,
-                                                centeredSlides: true,
-                                                spaceBetween: 10,
-                                            });
-                                            var swiperV = new Swiper('.swiper-container-f'+(i), {
-                                                direction: 'vertical'
-                                                , effect: 'flip'
-                                                , loop: true
-                                            });
+        var swiperV = new Swiper('.swiper-container-f'+(i), {
+            direction: 'vertical'
+            , effect: 'flip'
+            , loop: true
+        });
 
-                                            console.log(notediv.innerHTML);
-
-                                        }
+        otherSwipers.push(swiperV);
+        console.log('.swiper-container-f'+(i));
+    }
 
                                         var exn = document.getElementById("notecardEngine");
                                         var an = document.getElementById("active");
